@@ -1,10 +1,11 @@
 #include <iostream>
 #include <string>
+
 #include "totem.h"
 
 using namespace std;
 
-void Totem::Totem(){
+Totem::Totem(){
 
 }
 

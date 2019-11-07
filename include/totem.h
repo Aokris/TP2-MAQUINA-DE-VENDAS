@@ -1,5 +1,5 @@
-#ifndef TOTEM
-#define TOTEM
+#ifndef TOTEM_H
+#define TOTEM_H
 
 #include <iostream>
 #include <string>
@@ -8,9 +8,12 @@ using namespace std;
 
 class Totem{
     public:
-        void Totem();
+        Totem(); // Construtor
+        ~Totem(); // Destrutor
         void Menu();
         void InicializarEstruturas();
         void ListarUsuarios();
-        int ComprarIngresso();
-}
+        void ComprarIngresso();
+};
+
+#endif
