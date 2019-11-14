@@ -18,6 +18,7 @@ int main(){
 
         cout<<"Opcao: ";
         cin>>n;
+        
         system("cls || clear");
 
         if(n == 1){
