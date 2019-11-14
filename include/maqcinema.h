@@ -1,10 +1,12 @@
 #ifndef MAQUINA_CINEMA_H
 #define MAQUINA_CINEMA_H
 
-class MaquinaCinema{
-private:
+#include "totem.h"
 
-public:
+class MaquinaCinema : public Totem{
+    private:
+
+    public:
 
 };
 

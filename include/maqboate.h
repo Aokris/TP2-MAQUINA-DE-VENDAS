@@ -1,10 +1,15 @@
 #ifndef MAQUINA_BOATE_H
 #define MAQUINA_BOATE_H
 
-class MaquinaBoate{
-private:
+#include <iostream>
+#include <string>
+#include "totem.h"
 
-public:
+class MaquinaBoate : public Totem{
+    private:
+
+    public:
+    
 
 };
 

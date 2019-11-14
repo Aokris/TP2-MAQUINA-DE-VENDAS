@@ -8,12 +8,10 @@ using namespace std;
 
 class Totem{
     public:
-        Totem(); // Construtor
-        ~Totem(); // Destrutor
-        void Menu();
-        void InicializarEstruturas();
-        void ListarUsuarios();
-        void ComprarIngresso();
+        virtual void MaquinaDeVendas() = 0;
+        static void InicializarEstruturas();
+        static void ListarUsuarios();
+        static int ComprarIngresso();
 };
 
 #endif
