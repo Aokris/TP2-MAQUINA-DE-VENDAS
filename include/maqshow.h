@@ -10,4 +10,4 @@ class MaquinaShow : public Totem{
 
 };
 
-#endif MAQUINA_SHOW_H
+#endif

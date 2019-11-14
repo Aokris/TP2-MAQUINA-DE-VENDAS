@@ -13,4 +13,4 @@ class MaquinaBoate : public Totem{
 
 };
 
-#endif MAQUINA_BOATE_H
+#endif

@@ -10,4 +10,4 @@ public:
 
 };
 
-#endif MAQUINA_FANTOCHE_H
+#endif

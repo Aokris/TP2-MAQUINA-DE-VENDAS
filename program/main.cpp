@@ -18,8 +18,6 @@ int main(){
 
         cout<<"Opcao: ";
         cin>>n;
-        
-        system("cls || clear");
 
         if(n == 1){
             Totem::InicializarEstruturas();//executa as atividades de leitura de dados e inicialização de estruturas que você implementou na primeira parte do trabalho prático.
@@ -30,9 +28,9 @@ int main(){
             if(Totem::ComprarIngresso() == 1){
 
             }else{ 
-                cout<<"Aperte qualquer tecla para continuar: ";
+                cout<<"Erro: não foi possível identificar o usuario"<<endl<<"Aperte qualquer tecla para continuar: ";
                 cin>> aux;
-                system("cls || clear");
+                
             }
         }
     }

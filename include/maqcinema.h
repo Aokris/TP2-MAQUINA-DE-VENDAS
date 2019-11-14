@@ -10,4 +10,4 @@ class MaquinaCinema : public Totem{
 
 };
 
-#endif MAQUINA_CINEMA_H
+#endif
