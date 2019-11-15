@@ -6,7 +6,7 @@
 using namespace std;
 
 void MaquinaFantoche::MaquinaDeVendas(vector<TeatroFantoche> fant){
-        
+    _fant = fant;
 }
 
 void MaquinaFantoche::get_dados(){
@@ -30,16 +30,16 @@ void MaquinaFantoche::get_dados(){
 
 //tratamento de erros
     if(i > _fant.size()){
-        std::cout << ("Erro: impossivel encontrar o cadastro") << std::endl;
+        std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
         return;
     }
 
     if(i < 0){
-        std::cout << ("Erro: cadastro nao existente") << std::endl;
+        std::cout << ("Erro: evento nao existente") << std::endl;
         return;
     }
 
-    for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){//LOgica de Compra 
+    for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){//Logica de Compra 
         if (i == itFant->get_id()){
 
             int *horarios,k,*capacidade,q,quant;
@@ -55,11 +55,11 @@ void MaquinaFantoche::get_dados(){
 
 //Tratamento de erros
             if(k > sizeof(horarios)){
-                std::cout << ("Erro: impossivel encontrar o cadastro") << std::endl;
+                std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
                 return;
             }
             if(k < 0){
-                    std::cout << ("Erro: cadastro nao existente") << std::endl;
+                    std::cout << ("Erro: evento nao existente") << std::endl;
                     return;
             }
 
