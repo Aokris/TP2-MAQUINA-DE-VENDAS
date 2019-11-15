@@ -1,15 +1,15 @@
 Parte 1 - Menu
     Opção 1 - Inicializar as estruturas; (Vitor - ok)
     Opção 2 - Listagem de todos os usuarios;(Ruhann - )
-    Opção 3 - Solicita um ID de usuario e Parte 2;
-        Se o id informado n existir, retorna ao menu;
+    Opção 3 - Solicita um ID de usuario e Parte 2; 
+        Se o id informado n existir, retorna ao menu; ok
 obs:todas as ações retornam para o menu principal.
 
 Parte 2 - Opção 3
-    - Lista de todas as subcategorias;
-    - O usuario deve selecionar uma categoria;
-    - Se selecionar uma subcategoria fora da lista, mensagem de erro e menu inicial;
-    - Se a subcategoria for valida, abrir a tela da maquina de vendas selecionada;
+    - Lista de todas as subcategorias; ok
+    - O usuario deve selecionar uma categoria; ok
+    - Se selecionar uma subcategoria fora da lista, mensagem de erro e menu inicial; ok
+    - Se a subcategoria for valida, abrir a tela da maquina de vendas selecionada; ok
 
 Parte 3 - Maquinas de Vendas
     - MaquinaFantoche
