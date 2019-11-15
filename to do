@@ -1,21 +1,21 @@
 Parte 1 - Menu
     Opção 1 - Inicializar as estruturas; (Vitor - ok)
-    Opção 2 - Listagem de todos os usuarios;(Ruhann - )
-    Opção 3 - Solicita um ID de usuario e Parte 2;
+    Opção 2 - Listagem de todos os usuarios;(Ruhann - ok)
+    Opção 3 - Solicita um ID de usuario e Parte 2;(Bruno - ok)
         Se o id informado n existir, retorna ao menu;
 obs:todas as ações retornam para o menu principal.
 
-Parte 2 - Opção 3
+Parte 2 - Opção 3(Bruno - ok)
     - Lista de todas as subcategorias;
     - O usuario deve selecionar uma categoria;
     - Se selecionar uma subcategoria fora da lista, mensagem de erro e menu inicial;
     - Se a subcategoria for valida, abrir a tela da maquina de vendas selecionada;
 
-Parte 3 - Maquinas de Vendas
-    - MaquinaFantoche
+Parte 3 - Maquinas de Vendas 
+    - MaquinaFantoche(Ruhann - )
     - MaquinaCinema
     - MaquinaShow
-    - MaquinaBoate
+    - MaquinaBoate(Bruno - )
 
 Parte 4 - Encerramento
     - Imprimir ID, Nome, numero de ingressos comprados, e saldo final de quem compru

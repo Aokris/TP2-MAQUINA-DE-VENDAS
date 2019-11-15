@@ -3,6 +3,10 @@
 
 #include <iostream>
 #include <string>
+#include "adulto.h"
+#include "crianca.h"
+#include "idoso.h"
+#include <vector>
 
 using namespace std;
 
@@ -12,7 +16,7 @@ class Totem{
         static void Vendas();
         static void InicializarEstruturasUsuario();
         static void InicializarEstruturasEvento();
-        static void ListarUsuarios();
+        static void ListarUsuarios (vector<Crianca> cria, vector<Adulto> adult, vector<Idoso> idos);
         static int ComprarIngresso();
 };
 
