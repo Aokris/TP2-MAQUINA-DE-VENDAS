@@ -5,6 +5,7 @@
 
 using namespace std;
 
+
 //leitura de dados e inicialização das estruturas do tp1
 void Totem::InicializarEstruturas(){
     

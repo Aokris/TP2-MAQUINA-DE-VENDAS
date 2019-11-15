@@ -4,9 +4,8 @@
 #include "totem.h"
 
 class MaquinaCinema : public Totem{
-    private:
-
     public:
+    void MaquinaDeVendas();
 
 };
 

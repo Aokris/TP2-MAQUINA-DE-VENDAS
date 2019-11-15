@@ -6,11 +6,9 @@
 #include "totem.h"
 
 class MaquinaBoate : public Totem{
-    private:
-
     public:
+    void MaquinaDeVendas();
     
-
 };
 
 #endif
