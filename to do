@@ -12,11 +12,11 @@ Parte 2 - Opção 3(Bruno - ok)
     - Se a subcategoria for valida, abrir a tela da maquina de vendas selecionada;
 
 Parte 3 - Maquinas de Vendas 
-    - MaquinaFantoche(Ruhann - )
+    - MaquinaFantoche(Ruhann - ok)
     - MaquinaCinema
     - MaquinaShow
     - MaquinaBoate(Bruno - )
 
 Parte 4 - Encerramento
-    - Imprimir ID, Nome, numero de ingressos comprados, e saldo final de quem compru
+    - Imprimir ID, Nome, numero de ingressos comprados, e saldo final de quem comprou
     - Imprimir ID, nome do evento, numero total de ingressos vendidos de eventos vendidos

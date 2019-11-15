@@ -17,5 +17,7 @@ class Evento{
         Evento(int id, string nome, int id_dono, int *capacidade, int *precos);
         int get_id();
         string get_nome();
+        void get_capacidade(int *capacidade);
+        void set_capacidade(int *capacidade);
 };
 #endif

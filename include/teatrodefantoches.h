@@ -9,6 +9,7 @@ class TeatroFantoche : public  EventoInfantil{
         int *_horarios;
     public:
         TeatroFantoche(int *horarios, int id, string nome, int id_dono, int *capacidade, int *precos);
+        void get_horarios(int *horarios);
 };
 
 #endif

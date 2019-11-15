@@ -17,3 +17,9 @@ int Evento::get_id(){
 string Evento::get_nome(){
     return _nome;
 }
+void Evento::get_capacidade(int *capacidade){
+    capacidade = _capacidade;
+}
+void Evento::set_capacidade(int *capacidade){
+    _capacidade = capacidade;
+}
