@@ -11,6 +11,8 @@ class Boate : public  EventoAdulto{
 
     public:
         Boate(int quota_idoso, int horaInicio, int horaFim, int id, string nome, int id_dono, int *capacidade, int *precos);
+        int get_horaFim();
+        int get_horaInicio();
 };
 
 #endif
