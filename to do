@@ -1,6 +1,6 @@
 Parte 1 - Menu
-    Opção 1 - Inicializar as estruturas;
-    Opção 2 - Listagem de todos os usuarios;
+    Opção 1 - Inicializar as estruturas; (Vitor - ok)
+    Opção 2 - Listagem de todos os usuarios;(Ruhann - )
     Opção 3 - Solicita um ID de usuario e Parte 2;
         Se o id informado n existir, retorna ao menu;
 obs:todas as ações retornam para o menu principal.
