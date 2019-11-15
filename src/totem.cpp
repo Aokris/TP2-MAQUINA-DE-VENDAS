@@ -6,9 +6,13 @@
 using namespace std;
 
 
-//leitura de dados e inicialização das estruturas do tp1
-void Totem::InicializarEstruturas(){
-    
+
+void Totem::InicializarEstruturasUsuario(){
+    //leitura de dados e inicialização das estruturas de usuario
+}
+
+void Totem::InicializarEstruturasEvento(){
+    //inicializa as estruturas de eventos
 }
 
 //listar todos os usuarios cadastrados

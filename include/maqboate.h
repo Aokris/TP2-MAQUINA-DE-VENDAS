@@ -3,10 +3,17 @@
 
 #include <iostream>
 #include <string>
+#include <vector>
 #include "totem.h"
+#include "boate.h"
 
 class MaquinaBoate : public Totem{
+    private:
+    vector<Boate> _boate;
+
     public:
+    MaquinaBoate(vector<Boate> boate);
+    
     void MaquinaDeVendas();
     
 };

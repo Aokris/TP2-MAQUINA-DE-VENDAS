@@ -56,7 +56,8 @@ int main(){
         cin>>n;
 
         if(n == 1){
-            Totem::InicializarEstruturas();//executa as atividades de leitura de dados e inicialização de estruturas que você implementou na primeira parte do trabalho prático.
+            Totem::InicializarEstruturasUsuario();//executa as atividades de leitura de dados e inicialização de estruturas que você implementou na primeira parte do trabalho prático.
+            Totem::InicializarEstruturasEvento();
         }else if(n==2){
             Totem::ListarUsuarios();//exibe uma listagem de todos os usuários cadastrados no sistema, incluindo seu ID, nome, saldo, categoria (criança, adulto ou idoso) e ID do responsável, caso seja uma criança.
         }else if(n==3){
