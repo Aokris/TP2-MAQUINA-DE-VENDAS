@@ -1,5 +1,8 @@
 #include <iostream>
 #include <string>
+#include <bits/stdc++.h>
+#include <fstream>
+#include <stdlib.h>
 #include "totem.h"
 #include "maqboate.h"
 #include "maqcinema.h"
