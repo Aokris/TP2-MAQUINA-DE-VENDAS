@@ -25,16 +25,16 @@ void maquinadevendas(){
     switch (n)
     {
     case 1:
-        cinema.MaquinaDeVendas();
+        //cinema.MaquinaDeVendas();
         break;
     case 2:
-        show.MaquinaDeVendas();
+       // show.MaquinaDeVendas();
         break;
     case 3:
-        boate.MaquinaDeVendas();
+        //boate.MaquinaDeVendas();
         break;
     case 4:
-        fantoche.MaquinaDeVendas();
+        //fantoche.MaquinaDeVendas();
         break;
     default:
         break;
