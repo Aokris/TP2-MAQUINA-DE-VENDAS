@@ -8,13 +8,8 @@
 #include "boate.h"
 
 class MaquinaBoate : public Totem{
-    private:
-    vector<Boate> _boate;
-
-    public:
-    MaquinaBoate(vector<Boate> boate);
-    
-    void MaquinaDeVendas();
+    public:    
+    void MaquinaDeVendas(vector<Boate> boate);
     
 };
 

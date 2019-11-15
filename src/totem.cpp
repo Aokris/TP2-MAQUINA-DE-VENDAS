@@ -9,8 +9,6 @@
 
 using namespace std;
 
-
-
 void Totem::InicializarEstruturasUsuario(){
     //leitura de dados e inicialização das estruturas de usuario
 }
