@@ -7,3 +7,11 @@ Show::Show(int quota_idoso, int aberturaPortoes, string *artistas,int id, string
     _artistas = artistas;
     _aberturaPortoes = aberturaPortoes;
 }
+
+void Show::get_artistas(string *artista){
+    artista = _artistas;
+}
+
+int Show::get_aberturaPortoes(){
+    return _aberturaPortoes;
+}

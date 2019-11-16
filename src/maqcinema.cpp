@@ -5,15 +5,12 @@
 
 using namespace std;
 
-void MaquinaCinema::MaquinaDeVendas(vector<Cinema> cine){
+void MaquinaCinema::MaquinaDeVendas(vector<Cinema> cine,Usuario *Usuario){
+    
     _cine = cine;
-}
-
-
-void MaquinaCinema::get_dados(){
     vector<Cinema>::iterator itCine;
 
-    int i;
+    int i,*preco;
     cout << " Digite o ID do Filme Desejado " << endl;
 
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){//Exibindo opções de show
@@ -67,6 +64,7 @@ void MaquinaCinema::get_dados(){
             }
 
             itCine->get_capacidade(capacidade);
+            itCine->get_preco(preco);
 
             do{//Realização de compra de ingressos
 
@@ -80,8 +78,11 @@ void MaquinaCinema::get_dados(){
                 }
 
                 if(quant <= capacidade[q] && quant >= 0){
-                    capacidade[q] - quant;
+                    capacidade[q] = capacidade[q] - quant;
+                    Usuario->set_saldo(quant * preco[q]);
+
                     break;
+                    
                 }else{
                     std::cout << "Quantidade de ingressos maior que a exitente" <<std::endl;
                 }
@@ -90,7 +91,9 @@ void MaquinaCinema::get_dados(){
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itCine->get_id << " " << itCine->get_nome << " ";
-            std::cout << itCine->get_horarios[k] << " " << itCine->get_duracao << std::endl;
+            std::cout << itCine->get_horarios[k] << " " << itCine->get_duracao << std::endl<< std::endl;
+            std::cout << Usuario->get_id << " " << Usuario->get_nome;
+            std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
             
             return;
         }

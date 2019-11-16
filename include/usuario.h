@@ -21,6 +21,7 @@ class Usuario{
         string get_nome();
         int get_idade();
         float get_saldo();
+        float set_saldo(int quant);
 };
     
 #endif

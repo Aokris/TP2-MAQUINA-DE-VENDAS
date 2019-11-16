@@ -6,3 +6,6 @@ EventoAdulto::EventoAdulto(int id, string nome, int id_dono, int *capacidade, in
     Evento(id, nome, id_dono, capacidade, precos){
     _quota_idoso = quota_idoso;
 }
+int EventoAdulto::get_quota_Idoso(){
+    return _quota_idoso;
+}

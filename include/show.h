@@ -10,6 +10,8 @@ class Show : public  EventoAdulto{
     string *_artistas;
     public:
         Show(int quota_idoso, int aberturaPortoes, string *artistas, int id, string nome, int id_dono, int *capacidade, int *precos);
+        void get_artistas(string * artista);
+        int get_aberturaPortoes();
 };
 
 #endif

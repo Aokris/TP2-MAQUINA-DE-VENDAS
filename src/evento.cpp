@@ -23,3 +23,9 @@ void Evento::get_capacidade(int *capacidade){
 void Evento::set_capacidade(int *capacidade){
     _capacidade = capacidade;
 }
+void Evento::get_preco(int *preco){
+    preco = _precos;
+}
+void Evento::set_preco(int *preco){
+    _precos = preco;
+}

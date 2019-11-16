@@ -19,5 +19,7 @@ class Evento{
         string get_nome();
         void get_capacidade(int *capacidade);
         void set_capacidade(int *capacidade);
+        void set_preco(int *preco);
+        void get_preco(int *preco);
 };
 #endif

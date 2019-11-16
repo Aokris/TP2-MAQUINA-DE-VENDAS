@@ -2,17 +2,16 @@
 #include <iostream>
 #include <string>
 #include <iterator>
+#include "usuario.h"
 
 using namespace std;
 
-void MaquinaFantoche::MaquinaDeVendas(vector<TeatroFantoche> fant){
+void MaquinaFantoche::MaquinaDeVendas(vector<TeatroFantoche> fant,Usuario *Usuario){
     _fant = fant;
-}
 
-void MaquinaFantoche::get_dados(){
     vector<TeatroFantoche>::iterator itFant;
 
-    int i;
+    int i,*preco;
     cout << " Digite o ID do evento " << endl;
 
     for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){//Exibindo opções de show
@@ -63,6 +62,7 @@ void MaquinaFantoche::get_dados(){
                     return;
             }
 
+            itFant->set_preco(preco);
             itFant->get_capacidade(capacidade);
 
             do{//Realização de compra de ingressos
@@ -77,8 +77,12 @@ void MaquinaFantoche::get_dados(){
                 }
 
                 if(quant <= capacidade[q] && quant >= 0){
-                    capacidade[q] - quant;
+                    
+                    capacidade[q] = capacidade[q] - quant;
+                    Usuario->set_saldo(quant * preco[q]);
+
                     break;
+                    
                 }else{
                     std::cout << "Quantidade de ingressos maior que a exitente" <<std::endl;
                 }
@@ -87,7 +91,9 @@ void MaquinaFantoche::get_dados(){
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itFant->get_id << " " << itFant->get_nome << " ";
-            std::cout << itFant->get_horarios[k] << std::endl;
+            std::cout << itFant->get_horarios[k] << std::endl<< std::endl;
+            std::cout << Usuario->get_id << " " << Usuario->get_nome;
+            std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
             
             return;
         }

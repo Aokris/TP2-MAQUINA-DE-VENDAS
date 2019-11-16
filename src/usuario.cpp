@@ -25,3 +25,6 @@ int Usuario::get_idade(){
 float Usuario::get_saldo(){
     return _saldo;
 }
+float Usuario::set_saldo(int quant){
+    _saldo = _saldo - quant;
+}

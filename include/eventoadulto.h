@@ -9,6 +9,7 @@ class EventoAdulto : public  Evento{
     int _quota_idoso;
     public:
         EventoAdulto(int id, string nome, int id_dono, int *capacidade, int *precos, int quota_idoso);
+        int get_quota_Idoso();
 };
 
 #endif
