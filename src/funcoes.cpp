@@ -75,3 +75,36 @@ void NumeroDependentes(int *depend, int qp, int np){
         std::cout << "Média: "<< resul << endl << endl;
     }
 }
+
+//Função maquina de vendas
+void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate){
+    int n;
+    cout << "SUBCATEGORIAS DE EVENTOS" << endl << endl;
+    cout << "Favor escolher uma das opções abaixo:" << endl << endl;
+    cout << "1. Cinema" << endl;
+    cout << "2. Show" << endl;
+    cout << "3. Boate" << endl;
+    cout << "4. Fantoche" << endl << endl;
+
+    cout <<"Opcao: ";
+    cin >> n;
+
+    //implementar o objeto das respectivas categorias
+    switch(n)
+    {
+    case 1:
+    //chamar a maquina de vendas de cinema
+        break;
+    case 2:
+       //show.MaquinaDeVendas();
+        break;
+    case 3:
+        //boate.MaquinaDeVendas();
+        break;
+    case 4:
+        //fantoche.MaquinaDeVendas();
+        break;
+    default:
+        break;
+    }
+}

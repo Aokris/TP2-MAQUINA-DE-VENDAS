@@ -3,45 +3,34 @@
 #include <bits/stdc++.h>
 #include <fstream>
 #include <stdlib.h>
-#include "totem.h"
-#include "maqboate.h"
-#include "maqcinema.h"
-#include "maqfantoche.h"
-#include "maqshow.h"
 
-void maquinadevendas(){
-    int n;
-    cout << "SUBCATEGORIAS DE EVENTOS" << endl << endl;
-    cout << "Favor escolher uma das opções abaixo:" << endl << endl;
-    cout << "1. Cinema" << endl;
-    cout << "2. Show" << endl;
-    cout << "3. Boate" << endl;
-    cout << "4. Fantoche" << endl << endl;
-
-    cout <<"Opcao: ";
-    cin >> n;
-
-    //implementar o objeto das respectivas categorias
-    switch(n)
-    {
-    case 1:
-        //cinema.MaquinaDeVendas();
-        break;
-    case 2:
-       // show.MaquinaDeVendas();
-        break;
-    case 3:
-        //boate.MaquinaDeVendas();
-        break;
-    case 4:
-        //fantoche.MaquinaDeVendas();
-        break;
-    default:
-        break;
-    }
-}
+#include "funcoes.h"
 
 int main(){
+/* ---------- Criação de Objetos - USUÁRIOS ---------- */
+
+    vector<Crianca> crianca; //iniciar o vetor de crianças
+    vector<Crianca>::iterator itc;
+
+    vector<Adulto> adulto; //iniciar o vetor de adultos
+    vector<Adulto>::iterator ita;
+
+    vector<Idoso> idoso; //iniciar o vetor de idosos
+    vector<Idoso>::iterator itd;
+
+
+    /* ---------- Criação de Objetos - EVENTOS ---------- */
+    vector<Cinema> cinema;
+    vector<Cinema>::iterator itcine;
+
+    vector<Show> show;
+    vector<Show>::iterator itshow;
+
+    vector<Boate> boate;
+    vector<Boate>::iterator itboate;
+
+    vector<TeatroFantoche> fantoche;
+    vector<TeatroFantoche>::iterator itfan;
 
     string aux;   
     int n = 0;
@@ -59,18 +48,41 @@ int main(){
         cin >> n;
 
         if(n == 1){
-            Totem::InicializarEstruturasUsuario();//executa as atividades de leitura de dados e inicialização de estruturas que você implementou na primeira parte do trabalho prático.
-            Totem::InicializarEstruturasEvento();
+            
+            //executa as atividades de leitura de dados e inicialização de estruturas que você implementou na primeira parte do trabalho prático.
+            Totem::InicializarEstruturasUsuario(crianca, adulto, idoso);
+            Totem::InicializarEstruturasEvento(show, cinema, fantoche, boate);
+        
+        
         } else if(n == 2){
-            Totem::ListarUsuarios();//exibe uma listagem de todos os usuários cadastrados no sistema, incluindo seu ID, nome, saldo, categoria (criança, adulto ou idoso) e ID do responsável, caso seja uma criança.
-        } else if(n == 3){
+            //exibe uma listagem de todos os usuários cadastrados no sistema, incluindo seu ID, nome, saldo, categoria (criança, adulto ou idoso) e ID do responsável, caso seja uma criança.
+            Totem::ListarUsuarios(crianca, adulto, idoso);
+        
+        
+        } else if(n == 3){            
             //solicita o fornecimento do ID de um usuário. Se o ID fornecido não estiver cadastrado ou for de uma criança, o sistema imprime uma mensagem de erro e retorna ao menu inicial.
-            if(Totem::ComprarIngresso() == 1){
-                maquinadevendas();
-            } else { 
-                cout<<"Erro: não foi possível identificar o usuario"<<endl<<"Aperte qualquer tecla para continuar: ";
-                cin>> aux;
-                
+            int iduser = Totem::ComprarIngresso(adulto, idoso);
+            
+            if(iduser != 0){
+                //procura o usuario dono da id do comprador
+                for(ita == adulto.begin(); ita!= adulto.end();ita++){
+                    if(iduser == ita->get_id()){
+                    Adulto comprador1 = *ita;
+                    //envia o comprador e os objetos de evento para a maquina de vendas
+                    menuvenda(comprador1, show, cinema, fantoche, boate);
+                    }
+                }
+
+            for(itd == idoso.begin(); itd!= idoso.end();itd++){
+                if(iduser == itd->get_id()){
+                    Idoso comprador2 = *itd;
+                    //envia o comprador e os objetos de evento para a maquina de vendas
+                    menuvenda(comprador2, show, cinema, fantoche, boate);
+                    }
+                }
+            }else{ 
+                cout<<"Erro: não foi possível identificar o usuario ou usuario é uma criança;"<<endl<<"Aperte qualquer tecla para continuar: ";
+                cin>> aux;                
             }
         }
     }

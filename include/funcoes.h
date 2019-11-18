@@ -1,6 +1,11 @@
 #ifndef FUNCOES_H
 #define FUNCOES_H
 
+#include "totem.h"
+#include "maqboate.h"
+#include "maqcinema.h"
+#include "maqfantoche.h"
+#include "maqshow.h"
 #include "adulto.h"
 #include "crianca.h"
 #include "idoso.h"
@@ -25,6 +30,8 @@ std::vector<int> readCsv( std::vector<std::vector<std::string>> &resutlCsv, std:
 void IdadeDosUsuarios(int *idad, int max);
 
 void NumeroDependentes(int *depend, int qp, int np);
+
+void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate);
 
 
 #endif

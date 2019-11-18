@@ -10,11 +10,11 @@
 
 using namespace std;
 
-void Totem::InicializarEstruturasUsuario(){
+void Totem::InicializarEstruturasUsuario(vector<Crianca> crianca, vector<Adulto> adulto,  vector<Idoso> idoso){
     //leitura de dados e inicialização das estruturas de usuario
 }
 
-void Totem::InicializarEstruturasEvento(){
+void Totem::InicializarEstruturasEvento(vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate){
     //inicializa as estruturas de eventos
 }
 
@@ -51,12 +51,27 @@ void Totem::ListarUsuarios (vector<Crianca> cria, vector<Adulto> adult, vector<I
 }
 
 //procura se o id do usuario existe
-int Totem::ComprarIngresso(){
+int Totem::ComprarIngresso(vector<Adulto> adult, vector<Idoso> idos){
+
+    vector<Adulto>::iterator itAdul;
+    vector<Idoso>::iterator itIdos;
+
     int iduser;
+
     cout<<"Digite o ID do usuario: ";
     cin>>iduser;
-    /*if(iduser == /*id do usuario){
-        return 1;
-    }else*/ return 0;
-        
+
+    for(itAdul == adult.begin(); itAdul!= adult.end();itAdul++){
+            if(iduser == itAdul->get_id()){
+            return itAdul->get_id();
+        }
+    }
+
+    for(itIdos == idos.begin(); itIdos!= idos.end();itIdos++){
+        if(iduser == itIdos->get_id()){
+        return itIdos->get_id();
+        }
+    }
+
+     return 0;         
 }
