@@ -11,7 +11,7 @@ void MaquinaShow::MaquinaDeVendas(vector<Show> show,Usuario * Usuario){
 
     vector<Show>::iterator it;
 
-    cout<<"VENDA DE INGRESSO: show"<<endl<<endl;
+    cout<<"VENDA DE INGRESSO: SHOW"<<endl<<endl;
     cout<<"Favor escolher uma das opções abaixo:"<<endl<<endl;
 
     for(it = _show.begin(); it!=_show.end(); it++){//Imprime as informações 
