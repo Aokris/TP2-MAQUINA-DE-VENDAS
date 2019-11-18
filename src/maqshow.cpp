@@ -11,7 +11,7 @@ void MaquinaShow::MaquinaDeVendas(vector<Show> show,Usuario * Usuario){
 
     vector<Show>::iterator it;
 
-    cout<<"VENDA DE INGRESSO: show"<<endl<<endl;
+    cout<<"VENDA DE INGRESSO: SHOW"<<endl<<endl;
     cout<<"Favor escolher uma das opções abaixo:"<<endl<<endl;
 
     for(it = _show.begin(); it!=_show.end(); it++){//Imprime as informações 
@@ -82,7 +82,7 @@ void MaquinaShow::MaquinaDeVendas(vector<Show> show,Usuario * Usuario){
             }while(q != sizeof(capacidade));
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
-            std::cout << it->get_id << " " << it->get_nome << " - Abertura - ";
+            std::cout << it->get_id << " " << it->get_nome()<< " - Abertura - ";
             std::cout << it->get_aberturaPortoes() << std::endl<< std::endl;
             std::cout << Usuario->get_id << " " << Usuario->get_nome;
             std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
