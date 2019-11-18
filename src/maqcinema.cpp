@@ -2,13 +2,15 @@
 
 using namespace std;
 
-void MaquinaCinema::MaquinaDeVendas(vector<Cinema> cine,Usuario *Usuario){
+void MaquinaCinema::MaquinaDeVendas(){
     
-    _cine = cine;
+    cout << " Digite o ID do Filme Desejado " << endl;
+}
+
+void VendasIngressos(vector<Cinema> _cine,Usuario *Usuario){
     vector<Cinema>::iterator itCine;
 
     int i,*preco;
-    cout << " Digite o ID do Filme Desejado " << endl;
 
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){//Exibindo opções de show
         int *horarios;

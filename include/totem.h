@@ -28,7 +28,7 @@ class Totem {
         static vector<TeatroFantoche> _fantoche;
         static vector<Boate> _boate;*/
     public:
-        virtual void MaquinaDeVendas();
+        void MaquinaDeVendas();
         static void Vendas();
         static void InicializarEstruturasUsuario(vector<Crianca> crianca, vector<Adulto> adulto,  vector<Idoso> idoso);
         static void InicializarEstruturasEvento(vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate);

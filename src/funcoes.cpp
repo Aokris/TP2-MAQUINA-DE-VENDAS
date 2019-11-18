@@ -1,4 +1,8 @@
 #include "funcoes.h"
+#include "maqshow.h"
+#include "maqfantoche.h"
+#include "maqcinema.h"
+#include "maqboate.h"
 #include <map>
 #include <algorithm>
 
@@ -94,16 +98,16 @@ void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<T
     switch(n)
     {
     case 1:
-    //chamar a maquina de vendas de cinema
+        MaquinaCinema::MaquinaDeVendas();
         break;
     case 2:
-       //show.MaquinaDeVendas();
+        MaquinaBoate::MaquinaDeVendas();
         break;
     case 3:
-        //boate.MaquinaDeVendas();
+        MaquinaCinema::MaquinaDeVendas();
         break;
     case 4:
-        //fantoche.MaquinaDeVendas();
+        MaquinaFantoche::MaquinaDeVendas();
         break;
     default:
         break;
