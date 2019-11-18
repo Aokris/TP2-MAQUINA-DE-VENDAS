@@ -4,19 +4,19 @@
 #include <bits/stdc++.h>
 #include <fstream>
 #include <stdlib.h>
+#include <vector>
 
 #include "totem.h"
 
-using namespace std;
 
-void Totem::InicializarEstruturasUsuario(vector<Crianca> crianca, vector<Adulto> adulto,  vector<Idoso> idoso){
+void Totem::InicializarEstruturasUsuario(std::vector<Crianca> crianca, std::vector<Adulto> adulto,  std::vector<Idoso> idoso){
     //leitura de dados e inicialização das estruturas de usuario
     _crianca = crianca;
     _adulto = adulto;
     _idoso = idoso;
 }
 
-void Totem::InicializarEstruturasEvento(vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate){
+void Totem::InicializarEstruturasEvento(std::vector<Show> show, std::vector<Cinema> cinema, std::vector<TeatroFantoche> fantoche, std::vector<Boate> boate){
     //inicializa as estruturas de eventos
     _show = show;
     _cinema = cinema;
@@ -25,10 +25,10 @@ void Totem::InicializarEstruturasEvento(vector<Show> show, vector<Cinema> cinema
 }
 
 //listar todos os usuarios cadastrados
-void Totem::ListarUsuarios (){
-    vector<Crianca>::iterator itCria;
-    vector<Adulto>::iterator itAdul;
-    vector<Idoso>::iterator itIdos;
+void Totem::ListarUsuarios(){
+    std::vector<Crianca>::iterator itCria;
+    std::vector<Adulto>::iterator itAdul;
+    std::vector<Idoso>::iterator itIdos;
 
     for (itCria = _crianca.begin(); itCria != _crianca.end();itCria++){//Impressão de todas as crianças
         std::cout << endl << itCria->get_id() << " ";
@@ -59,8 +59,8 @@ void Totem::ListarUsuarios (){
 //procura se o id do usuario existe
 int Totem::ComprarIngresso(){
 
-    vector<Adulto>::iterator itAdul;
-    vector<Idoso>::iterator itIdos;
+    std::vector<Adulto>::iterator itAdul;
+    std::vector<Idoso>::iterator itIdos;
 
     int iduser;
 
