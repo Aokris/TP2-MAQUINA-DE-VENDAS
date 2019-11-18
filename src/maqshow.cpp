@@ -82,7 +82,7 @@ void MaquinaShow::MaquinaDeVendas(vector<Show> show,Usuario * Usuario){
             }while(q != sizeof(capacidade));
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
-            std::cout << it->get_id << " " << it->get_nome << " - Abertura - ";
+            std::cout << it->get_id << " " << it->get_nome()<< " - Abertura - ";
             std::cout << it->get_aberturaPortoes() << std::endl<< std::endl;
             std::cout << Usuario->get_id << " " << Usuario->get_nome;
             std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
