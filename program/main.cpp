@@ -293,16 +293,18 @@ int main(){
         
         } else if(n == 2){
             //exibe uma listagem de todos os usuários cadastrados no sistema, incluindo seu ID, nome, saldo, categoria (criança, adulto ou idoso) e ID do responsável, caso seja uma criança.
-            Totem::ListarUsuarios();
+            Totem::ListarUsuarios(crianca, adulto, idoso);
         
         
         } else if(n == 3){            
             //solicita o fornecimento do ID de um usuário. Se o ID fornecido não estiver cadastrado ou for de uma criança, o sistema imprime uma mensagem de erro e retorna ao menu inicial.
-            int iduser = Totem::ComprarIngresso();
+            int iduser = Totem::ComprarIngresso(adulto, idoso);
             
+            cout <<endl << iduser << endl << endl;
+
             if(iduser >= 0){
                 //procura o usuario dono da id do comprador
-                for(ita == adulto.begin(); ita!= adulto.end();ita++){
+                for(ita = adulto.begin(); ita!= adulto.end();ita++){
                     if(iduser == ita->get_id()){
                     Adulto comprador1 = *ita;
                     //envia o comprador e os objetos de evento para a maquina de vendas
@@ -310,7 +312,7 @@ int main(){
                     }
                 }
 
-                for(itd == idoso.begin(); itd!= idoso.end();itd++){
+                for(itd = idoso.begin(); itd!= idoso.end();itd++){
                     if(iduser == itd->get_id()){
                         Idoso comprador2 = *itd;
                         //envia o comprador e os objetos de evento para a maquina de vendas
