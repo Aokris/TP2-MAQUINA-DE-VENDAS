@@ -5,8 +5,214 @@
 #include "maqboate.h"
 #include <map>
 #include <algorithm>
+#include <iostream>
+#include <string>
+#include <bits/stdc++.h>
+#include <fstream>
+#include <stdlib.h>
+#include <vector>
 
-// 1. Função que imprime a idade dos usuarios segundo o especificado (vetor idades, quantidade de usuarios)
+#include "funcoes.h"
+#include "crianca.h"
+#include "idoso.h"
+#include "totem.h"
+
+int le_usuarios(int &j, int &qcria, int &qadult, int &qidos, std::string file_usuarios, int *depend, int *idad, vector<Crianca> &crianca, vector<Adulto> &adulto, vector<Idoso> &idoso){
+    // Definindo auxiliares
+    int id = 0;
+    float saldo = 0.0;
+    string nome, categoria;
+
+    // Abrindo arquivo
+    std::ifstream file_a(file_usuarios);
+
+    if(file_a.is_open()){
+        // Separar em uma função
+        std::string linha, linha_aux;
+        std::vector<string> tratamento;
+        
+        while(getline(file_a, linha)){
+            stringstream X(linha);
+            while(getline(X, linha_aux, ',')){
+                tratamento.push_back(linha_aux);
+            }
+            int i = 0;
+            id = stoi(tratamento[i]); i++;
+            categoria = (tratamento[i]); i++;
+            nome = (tratamento[i]); i++;
+            idad[j] = stoi(tratamento[i]); i++;
+            saldo = stof(tratamento[i]); i++;
+
+            if(categoria == "crianca"){
+                depend[qcria] = stoi(tratamento[i]); i++;
+                Crianca c(id, categoria, nome, idad[j], saldo, depend[qcria]);
+                crianca.push_back(c);
+                qcria++;;
+
+            } else if(categoria == "adulto"){
+                Adulto a(id, categoria, nome, idad[j], saldo);
+                adulto.push_back(a);
+                qadult++;
+
+            } else if(categoria == "idoso"){
+                Idoso ido(id, categoria, nome, idad[j], saldo);
+                idoso.push_back(ido);
+                qidos++;
+
+            } else {
+                cout << "Houve um erro na leitura do arquivo, garanta que as classes de usuários foram identificadas corretamente!" << endl;
+                return EXIT_FAILURE;
+            }
+
+
+            j++;
+
+            tratamento.clear();
+        }
+
+        
+    } else {
+        cout << "Erro, nao deu pra abrir!" << endl;
+        return EXIT_FAILURE;
+    }
+
+}
+
+int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qFanto, int *IdDono, int &maiorQuota, int &idMaiorQuota, std::string file_eventos, vector<Cinema> &cinema, vector<Show> &show, vector<Boate> &boate, vector<TeatroFantoche> &fantoche, map<double, int> &precos){
+    // Definindo auxiliares
+    int NumTipos = 0;
+    int IdEven = 0;
+    std::string categoriaEven;
+    std::string subcategEven;
+    std::string nomeEven;
+    int quotaIdoso = 0;
+    int duracao = 0;
+    int horaIni = 0;
+    int horaFim = 0;
+    int abertura = 0;
+
+    // Abrindo arquivo
+    std::ifstream file_b(file_eventos);
+
+    if(file_b.is_open()){
+        // Separar em uma função
+        std::string linha, linha_aux;
+        std::vector<string> tratamento2;
+        
+        
+        while(getline(file_b, linha)){
+            stringstream Y(linha);
+            while(getline(Y, linha_aux, ',')){
+                tratamento2.push_back(linha_aux);
+            }
+            
+            int i = 0;
+            IdEven = stoi(tratamento2[i]); i++;
+
+            categoriaEven = tratamento2[i]; i++;
+
+            // Se evento for do tipo cinema, ele não tem subcategoria
+            if(categoriaEven != "cinema"){
+                subcategEven = tratamento2[i]; i++;
+            }
+
+            nomeEven = tratamento2[i]; i++;
+
+            IdDono[contagem_donos] = stoi(tratamento2[i]); i++;
+
+            NumTipos = stoi(tratamento2[i]); i++;
+
+            int *ingEven = new int[NumTipos];
+            int *ValorEven = new int[NumTipos];
+
+            for(int aux_tipos = 0; aux_tipos < NumTipos; aux_tipos++){
+
+                ingEven[aux_tipos] = stoi(tratamento2[i]); i++;
+
+                ValorEven[aux_tipos] = stof(tratamento2[i]); i++;
+
+                precos[ValorEven[aux_tipos]] += ingEven[aux_tipos];
+            }
+
+            int *horarios = new int[999];
+            // Se o evento não for do tipo Adulto, a leitura dos horários é realizada
+            if(categoriaEven == "infantil"){
+                for(int aux_h = 0; aux_h < tratamento2.size() - i; aux_h++){
+                    horarios[aux_h] = stoi(tratamento2[i]); i++;
+                }
+
+                TeatroFantoche fan(horarios, IdEven, nomeEven, IdDono[contagem_donos], ingEven, ValorEven);
+                fantoche.push_back(fan);
+                qFanto++;
+
+            } else if(categoriaEven == "cinema"){
+                for(int aux_h = 0; aux_h < tratamento2.size() - (i+1); aux_h++){
+                    horarios[aux_h] = stoi(tratamento2[i]); i++;
+                }
+                
+                duracao = stoi(tratamento2[i]); i++;
+
+                Cinema cine(IdEven, nomeEven, IdDono[contagem_donos], ingEven, ValorEven, horarios, duracao);
+                cinema.push_back(cine);
+                qCine++;
+
+            } else if(categoriaEven == "adulto"){
+                quotaIdoso = stoi(tratamento2[i]); i++;
+
+                if(quotaIdoso > maiorQuota){
+                    maiorQuota = quotaIdoso;
+                    idMaiorQuota = IdEven;
+                }
+
+                if(subcategEven == "boate"){
+                    horaIni = stoi(tratamento2[i]); i++;
+                    horaFim = stoi(tratamento2[i]); i++;
+
+                    Boate boa(quotaIdoso, horaIni, horaFim, IdEven, nomeEven, IdDono[contagem_donos], ingEven, ValorEven);
+                    boate.push_back(boa);
+                    qBoate++;
+
+                } else if(subcategEven == "show"){
+                    abertura = stoi(tratamento2[i]); i++;
+                    
+                    string *artistas = new string[999];
+                    int aux_arts = 0;
+                    for(; i <= tratamento2.size(); i++){
+                        artistas[aux_arts] = tratamento2[i];
+                        aux_arts++;
+                    }
+
+                    Show sho(quotaIdoso, abertura, artistas, IdEven, nomeEven, IdDono[contagem_donos], ingEven, ValorEven);
+                    show.push_back(sho);
+                    qShow++;
+
+                    delete [] artistas;
+                }
+
+
+            } else {
+                cout << "Houve um erro na leitura do arquivo, garanta que as classes de usuários foram identificadas corretamente!" << endl;
+                return EXIT_FAILURE;
+
+            }
+
+            delete [] horarios;
+            delete [] ingEven;
+            delete [] ValorEven;
+
+            contagem_donos++;
+
+            tratamento2.clear();
+        }
+
+    } else {
+        cout << "Erro, nao deu pra abrir!" << endl;
+        return EXIT_FAILURE;
+    }
+
+}
+
+// 3. Função que imprime a idade dos usuarios segundo o especificado (vetor idades, quantidade de usuarios)
 void IdadeDosUsuarios(int *idad, int max){
     int aux = 0, soma = 0;
     float resul = 0.0;
@@ -26,7 +232,7 @@ void IdadeDosUsuarios(int *idad, int max){
     std::cout << "Média: "<< resul << endl << endl;
 }
 
-// 2. Numero de dependentes por adulto (vetor dependentes, quantidade criancas, quantidade adultos)
+// 4. Numero de dependentes por adulto (vetor dependentes, quantidade criancas, quantidade adultos)
 void NumeroDependentes(int *depend, int qp, int np){
 
     if(depend[0] == -1){
@@ -98,7 +304,9 @@ void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<T
     switch(n)
     {
     case 1:
-        MaquinaCinema::MaquinaDeVendas();
+        MaquinaCinema cine;
+        cine.MaquinaDeVendas();
+        cine.VendasCinema(cinema,adulto);
         break;
     case 2:
         MaquinaBoate::MaquinaDeVendas();
