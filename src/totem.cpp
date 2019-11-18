@@ -5,26 +5,32 @@
 #include <fstream>
 #include <stdlib.h>
 
-
 #include "totem.h"
 
 using namespace std;
 
 void Totem::InicializarEstruturasUsuario(vector<Crianca> crianca, vector<Adulto> adulto,  vector<Idoso> idoso){
     //leitura de dados e inicialização das estruturas de usuario
+    _crianca = crianca;
+    _adulto = adulto;
+    _idoso = idoso;
 }
 
 void Totem::InicializarEstruturasEvento(vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate){
     //inicializa as estruturas de eventos
+    _show = show;
+    _cinema = cinema;
+    _fantoche = fantoche;
+    _boate = boate;
 }
 
 //listar todos os usuarios cadastrados
-void Totem::ListarUsuarios (vector<Crianca> cria, vector<Adulto> adult, vector<Idoso> idos){
+void Totem::ListarUsuarios (){
     vector<Crianca>::iterator itCria;
     vector<Adulto>::iterator itAdul;
     vector<Idoso>::iterator itIdos;
 
-    for (itCria = cria.begin(); itCria != cria.end();itCria++){//Impressão de todas as crianças
+    for (itCria = _crianca.begin(); itCria != _crianca.end();itCria++){//Impressão de todas as crianças
         std::cout << endl << itCria->get_id() << " ";
         std::cout << itCria->get_nome() << " ";
         std::cout << itCria->get_idade() << " ";
@@ -33,7 +39,7 @@ void Totem::ListarUsuarios (vector<Crianca> cria, vector<Adulto> adult, vector<I
         std::cout << itCria->get_categoria() << std::endl;
     }
 
-    for (itAdul = adult.begin(); itAdul != adult.end();itAdul++){// Imprime todos os adultos 
+    for (itAdul = _adulto.begin(); itAdul != _adulto.end();itAdul++){// Imprime todos os adultos 
         std::cout << endl << itAdul->get_id() << " ";
         std::cout << itAdul->get_nome() << " ";
         std::cout << itAdul->get_idade() << " ";
@@ -41,7 +47,7 @@ void Totem::ListarUsuarios (vector<Crianca> cria, vector<Adulto> adult, vector<I
         std::cout << itAdul->get_categoria() << std::endl;
     }
 
-    for (itIdos = idos.begin(); itIdos != idos.end();itIdos++){//Imprime todos os idosos
+    for (itIdos = _idoso.begin(); itIdos != _idoso.end();itIdos++){//Imprime todos os idosos
         std::cout << endl << itIdos->get_id() << " ";
         std::cout << itIdos->get_nome() << " ";
         std::cout << itIdos->get_idade() << " ";
@@ -51,7 +57,7 @@ void Totem::ListarUsuarios (vector<Crianca> cria, vector<Adulto> adult, vector<I
 }
 
 //procura se o id do usuario existe
-int Totem::ComprarIngresso(vector<Adulto> adult, vector<Idoso> idos){
+int Totem::ComprarIngresso(){
 
     vector<Adulto>::iterator itAdul;
     vector<Idoso>::iterator itIdos;
@@ -61,13 +67,13 @@ int Totem::ComprarIngresso(vector<Adulto> adult, vector<Idoso> idos){
     cout<<"Digite o ID do usuario: ";
     cin>>iduser;
 
-    for(itAdul == adult.begin(); itAdul!= adult.end();itAdul++){
+    for(itAdul == _adulto.begin(); itAdul!= _adulto.end();itAdul++){
             if(iduser == itAdul->get_id()){
             return itAdul->get_id();
         }
     }
 
-    for(itIdos == idos.begin(); itIdos!= idos.end();itIdos++){
+    for(itIdos == _idoso.begin(); itIdos!= _idoso.end();itIdos++){
         if(iduser == itIdos->get_id()){
         return itIdos->get_id();
         }

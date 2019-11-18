@@ -11,7 +11,7 @@ class MaquinaFantoche : public Totem{
         int id;
     public:
     void MaquinaDeVendas(vector<TeatroFantoche> fant,Usuario * Usuario);
-    void MaquinaFantoche::get_dados();
+    void get_dados();
 };
 
 #endif

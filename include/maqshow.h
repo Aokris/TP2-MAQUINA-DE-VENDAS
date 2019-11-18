@@ -3,12 +3,13 @@
 
 #include "totem.h"
 #include "usuario.h"
+#include "show.h"
 
 class MaquinaShow : public Totem{
     private:
         vector<Show> _show;
     public:
-    void MaquinaShow::MaquinaDeVendas(vector<Show> show,Usuario * Usuario);
+    void MaquinaDeVendas(vector<Show> show,Usuario *Usuario);
 
 };
 
