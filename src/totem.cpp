@@ -1,10 +1,7 @@
 #include <iostream>
 #include <string>
-#include <string>
-#include <bits/stdc++.h>
-#include <fstream>
-#include <stdlib.h>
 #include <vector>
+#include <iterator>
 
 #include "totem.h"
 
