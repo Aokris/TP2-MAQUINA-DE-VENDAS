@@ -6,7 +6,7 @@
 using namespace std;
 
 void MaquinaBoate::MaquinaDeVendas(vector<Boate> boate, Usuario *Usuario){
-    
+    _boate = boate;
     int quant = 0, q = 0;
     
     vector<Boate>::iterator it;
@@ -14,7 +14,7 @@ void MaquinaBoate::MaquinaDeVendas(vector<Boate> boate, Usuario *Usuario){
     cout<<"VENDA DE INGRESSO: BOATE"<<endl<<endl;
     cout<<"Favor escolher uma das opções abaixo:"<<endl<<endl;
 
-    for(it = boate.begin(); it!=boate.end(); it++){
+    for(it = _boate.begin(); it!=_boate.end(); it++){
         cout<<it->get_id()<<" "<<it->get_nome()<<endl;
         cout<<"Duracao: Inicio"<<it->get_horaInicio()<<" - Fim: "<<it->get_horaFim()<<endl<<endl;
     }
@@ -23,7 +23,7 @@ void MaquinaBoate::MaquinaDeVendas(vector<Boate> boate, Usuario *Usuario){
     cout<<"Opcao: ";
     cin>>n;
 
-    if(n > boate.size()){
+    if(n > _boate.size()){
         std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
         return;
     }
@@ -33,7 +33,7 @@ void MaquinaBoate::MaquinaDeVendas(vector<Boate> boate, Usuario *Usuario){
         return;
     }
 
-    for(it = boate.begin(); it!=boate.end(); it++){
+    for(it = _boate.begin(); it!=_boate.end(); it++){
         if(n == it->get_id()){
 
             int *capacidade,*preco;
@@ -81,8 +81,4 @@ void MaquinaBoate::MaquinaDeVendas(vector<Boate> boate, Usuario *Usuario){
 
         }
     }
-        }
-    }
-
-
 }

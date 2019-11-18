@@ -20,7 +20,7 @@ void MaquinaFantoche::MaquinaDeVendas(vector<TeatroFantoche> fant,Usuario *Usuar
         std::cout << itFant->get_nome() << " ";
 
         for(int j = 0; j != sizeof(itFant->get_horarios); j++){//Exibição de Horarios
-            std::cout << " " << itFant->get_horarios[j] ;
+            std::cout << " " << itFant->get_horarios;
         }
         std::cout << std::endl;
     }
@@ -90,9 +90,9 @@ void MaquinaFantoche::MaquinaDeVendas(vector<TeatroFantoche> fant,Usuario *Usuar
             }while(q != sizeof(capacidade));
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
-            std::cout << itFant->get_id << " " << itFant->get_nome << " ";
+            std::cout << itFant->get_id() << " " << itFant->get_nome() << " ";
             std::cout << itFant->get_horarios[k] << std::endl<< std::endl;
-            std::cout << Usuario->get_id << " " << Usuario->get_nome;
+            std::cout << Usuario->get_id() << " " << Usuario->get_nome();
             std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
             
             return;

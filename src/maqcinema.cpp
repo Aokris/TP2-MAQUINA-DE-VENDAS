@@ -91,7 +91,7 @@ void MaquinaCinema::MaquinaDeVendas(vector<Cinema> cine,Usuario *Usuario){
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itCine->get_id << " " << itCine->get_nome << " ";
-            std::cout << itCine->get_horarios[k] << " " << itCine->get_duracao << std::endl<< std::endl;
+            std::cout << itCine->get_horarios[k] << " " << itCine->get_duracao() << std::endl<< std::endl;
             std::cout << Usuario->get_id << " " << Usuario->get_nome;
             std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
             
