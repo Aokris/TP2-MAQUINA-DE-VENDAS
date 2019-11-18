@@ -238,6 +238,12 @@ int main(){
     string aux;   
     int n = 0;
 
+    /* ---------- Váriaveis Auxiliares ---------- */
+    int *depend = new int[999];
+    depend[0] = -1;
+    int *idad = new int[999];
+    int *IdDono = new int[999];
+
     while(n != 4){
 
         cout << "SISTEMA DE VENDAS DE INGRESSO" <<endl << endl;
@@ -251,11 +257,6 @@ int main(){
         cin >> n;
 
         if(n == 1){
-            /* ---------- Váriaveis Auxiliares - USUÁRIOS ---------- */
-            int *depend = new int[999];                //vetor de id dependentes
-            depend[0] = -1;                       // usado para caso extremo de nenhum dependente
-            int *idad = new int[999];
-
             // Contadores
             int qcria = 0, qadult = 0, qidos = 0;
 
@@ -273,7 +274,6 @@ int main(){
         /* ---------- Váriaveis Auxiliares - EVENTOS ---------- */
             map<double, int> precos;
             map<double, int>::iterator itprecos;
-            int *IdDono = new int[999];
             int maiorQuota = 0, idMaiorQuota = 0;
             // Contadores
             int qBoate = 0, qShow = 0, qCine = 0, qFanto = 0;
@@ -326,5 +326,9 @@ int main(){
         }
     }
     
+    delete [] IdDono;
+    delete [] depend;
+    delete [] idad;
+
     return 0;
 }
