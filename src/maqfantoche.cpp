@@ -1,8 +1,4 @@
 #include "maqfantoche.h"
-#include <iostream>
-#include <string>
-#include <iterator>
-#include "usuario.h"
 
 using namespace std;
 
@@ -11,17 +7,22 @@ void MaquinaFantoche::MaquinaDeVendas(vector<TeatroFantoche> fant,Usuario *Usuar
 
     vector<TeatroFantoche>::iterator itFant;
 
-    int i,*preco;
+    int i,*preco,*hr;
     cout << " Digite o ID do evento " << endl;
 
     for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){//Exibindo opções de show
+        int *horarios;
 
         std::cout << std::endl << itFant->get_id() << " ";
         std::cout << itFant->get_nome() << " ";
 
-        for(int j = 0; j != sizeof(itFant->get_horarios); j++){//Exibição de Horarios
-            std::cout << " " << itFant->get_horarios;
+        itFant->get_horarios(horarios);
+
+        for(int j = 0; j != sizeof(horarios); j++){//Exibição de Horarios
+            std::cout << " " << horarios[j];
         }
+        
+        delete [] horarios;
         std::cout << std::endl;
     }
     
@@ -88,10 +89,12 @@ void MaquinaFantoche::MaquinaDeVendas(vector<TeatroFantoche> fant,Usuario *Usuar
                 }
 
             }while(q != sizeof(capacidade));
+            
+            itFant->get_horarios(hr);
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itFant->get_id() << " " << itFant->get_nome() << " ";
-            std::cout << itFant->get_horarios[k] << std::endl<< std::endl;
+            std::cout << hr[k] << std::endl<< std::endl;
             std::cout << Usuario->get_id() << " " << Usuario->get_nome();
             std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
             

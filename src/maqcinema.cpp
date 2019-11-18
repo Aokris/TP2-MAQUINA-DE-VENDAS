@@ -1,8 +1,5 @@
 #include "maqcinema.h"
 
-#include <iostream>
-#include <string>
-
 using namespace std;
 
 void MaquinaCinema::MaquinaDeVendas(vector<Cinema> cine,Usuario *Usuario){
@@ -14,14 +11,16 @@ void MaquinaCinema::MaquinaDeVendas(vector<Cinema> cine,Usuario *Usuario){
     cout << " Digite o ID do Filme Desejado " << endl;
 
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){//Exibindo opções de show
+        int *horarios;
 
         std::cout << std::endl << itCine->get_id() << " ";
         std::cout << itCine->get_nome() << " ";
+        itCine->get_horarios(horarios);
 
-        for(int j = 0; j != sizeof(itCine->get_horarios); j++){//Exibição de Horarios
-            std::cout << " " << itCine->get_horarios[j] ;
+        for(int j = 0; j != sizeof(horarios); j++){//Exibição de Horarios
+            std::cout << " " << horarios[j] ;
         }
-        std::cout << itCine->get_duracao;
+        std::cout << itCine->get_duracao();
         std::cout << std::endl << std::endl;
     }
     
@@ -90,9 +89,9 @@ void MaquinaCinema::MaquinaDeVendas(vector<Cinema> cine,Usuario *Usuario){
             }while(q != sizeof(capacidade));
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
-            std::cout << itCine->get_id << " " << itCine->get_nome << " ";
-            std::cout << itCine->get_horarios[k] << " " << itCine->get_duracao() << std::endl<< std::endl;
-            std::cout << Usuario->get_id << " " << Usuario->get_nome;
+            std::cout << itCine->get_id() << " " << itCine->get_nome() << " ";
+            std::cout << horarios[k] << " " << itCine->get_duracao() << std::endl<< std::endl;
+            std::cout << Usuario->get_id() << " " << Usuario->get_nome();
             std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
             
             return;

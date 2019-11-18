@@ -3,18 +3,20 @@
 
 #include <iostream>
 #include <string>
-#include "adulto.h"
-#include "crianca.h"
-#include "idoso.h"
 #include <vector>
-#include "funcoes.h"
-#include "crianca.h"
+
 #include "adulto.h"
+#include "crianca.h"
 #include "idoso.h"
+
+#include "show.h"
+#include "cinema.h"
+#include "teatrodefantoches.h"
+#include "boate.h"
 
 using namespace std;
 
-class Totem{
+class Totem {
     private:
         static vector<Crianca> _crianca;
         static vector<Adulto> _adulto;

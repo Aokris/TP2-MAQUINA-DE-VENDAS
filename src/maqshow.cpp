@@ -1,7 +1,4 @@
 #include "maqshow.h"
-#include <iostream>
-#include <string>
-#include "show.h"
 
 using namespace std;
 
@@ -65,7 +62,7 @@ void MaquinaShow::MaquinaDeVendas(vector<Show> show,Usuario * Usuario){
                     
                     if(Usuario->get_categoria() == "idoso"){
                         capacidade[q] = capacidade[q] - quant;
-                        Usuario->set_saldo(quant * it->get_quota_Idoso);
+                        Usuario->set_saldo(quant * it->get_quota_Idoso());
                         
                     }else if(Usuario->get_categoria() == "adulto"){
                         capacidade[q] = capacidade[q] - quant;

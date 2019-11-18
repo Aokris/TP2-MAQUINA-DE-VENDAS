@@ -5,6 +5,9 @@
 #include <stdlib.h>
 
 #include "funcoes.h"
+#include "crianca.h"
+#include "idoso.h"
+#include "totem.h"
 
 int main(){
 /* ---------- Criação de Objetos - USUÁRIOS ---------- */
@@ -56,14 +59,14 @@ int main(){
         
         } else if(n == 2){
             //exibe uma listagem de todos os usuários cadastrados no sistema, incluindo seu ID, nome, saldo, categoria (criança, adulto ou idoso) e ID do responsável, caso seja uma criança.
-            Totem::ListarUsuarios(crianca, adulto, idoso);
+            Totem::ListarUsuarios();
         
         
         } else if(n == 3){            
             //solicita o fornecimento do ID de um usuário. Se o ID fornecido não estiver cadastrado ou for de uma criança, o sistema imprime uma mensagem de erro e retorna ao menu inicial.
-            int iduser = Totem::ComprarIngresso(adulto, idoso);
+            int iduser = Totem::ComprarIngresso();
             
-            if(iduser != 0){
+            if(iduser >= 0){
                 //procura o usuario dono da id do comprador
                 for(ita == adulto.begin(); ita!= adulto.end();ita++){
                     if(iduser == ita->get_id()){
@@ -73,12 +76,12 @@ int main(){
                     }
                 }
 
-            for(itd == idoso.begin(); itd!= idoso.end();itd++){
-                if(iduser == itd->get_id()){
-                    Idoso comprador2 = *itd;
-                    //envia o comprador e os objetos de evento para a maquina de vendas
-                    menuvenda(comprador2, show, cinema, fantoche, boate);
-                    }
+                for(itd == idoso.begin(); itd!= idoso.end();itd++){
+                    if(iduser == itd->get_id()){
+                        Idoso comprador2 = *itd;
+                        //envia o comprador e os objetos de evento para a maquina de vendas
+                        menuvenda(comprador2, show, cinema, fantoche, boate);
+                        }
                 }
             }else{ 
                 cout<<"Erro: não foi possível identificar o usuario ou usuario é uma criança;"<<endl<<"Aperte qualquer tecla para continuar: ";

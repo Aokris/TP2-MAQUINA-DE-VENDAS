@@ -2,10 +2,8 @@
 #define MAQUINA_FANTOCHE_H
 
 #include "totem.h"
-#include "teatrodefantoches.h"
-#include "usuario.h"
 
-class MaquinaFantoche : public Totem{
+class MaquinaFantoche:public Totem{
     private:
         vector<TeatroFantoche> _fant;
         int id;

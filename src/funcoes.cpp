@@ -1,4 +1,5 @@
 #include "funcoes.h"
+#include <map>
 #include <algorithm>
 
 // 1. Função que imprime a idade dos usuarios segundo o especificado (vetor idades, quantidade de usuarios)

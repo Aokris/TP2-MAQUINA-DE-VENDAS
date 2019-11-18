@@ -1,7 +1,4 @@
 #include "maqboate.h"
-#include <iostream>
-#include <string>
-#include "funcoes.h"
 
 using namespace std;
 
@@ -55,7 +52,7 @@ void MaquinaBoate::MaquinaDeVendas(vector<Boate> boate, Usuario *Usuario){
                     
                     if(Usuario->get_categoria() == "idoso"){
                         capacidade[q] = capacidade[q] - quant;
-                        Usuario->set_saldo(quant * it->get_quota_Idoso);
+                        Usuario->set_saldo(quant * it->get_quota_Idoso());
                         
                     }else if(Usuario->get_categoria() == "adulto"){
                         capacidade[q] = capacidade[q] - quant;
@@ -72,9 +69,9 @@ void MaquinaBoate::MaquinaDeVendas(vector<Boate> boate, Usuario *Usuario){
             }while(q != sizeof(capacidade));
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
-            std::cout << it->get_id << " " << it->get_nome()<< " - Duracao: Inicio - ";
+            std::cout << it->get_id() << " " << it->get_nome()<< " - Duracao: Inicio - ";
             std::cout << it->get_horaInicio()<<" - Fim: " << it->get_horaFim()<<std::endl<< std::endl;
-            std::cout << Usuario->get_id << " " << Usuario->get_nome;
+            std::cout << Usuario->get_id() << " " << Usuario->get_nome();
             std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
             
             return;
