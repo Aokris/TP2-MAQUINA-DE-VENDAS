@@ -8,28 +8,35 @@ void MaquinaCinema::MaquinaDeVendas(){
 }
 
 void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
-    
-    //-----------ERRO NA FUNÇÃO CINEMA, SEGMENTATION FAULT------------
-    vector<Cinema>::iterator itCine;
 
-    int i,*preco;
+    vector<Cinema>::iterator itCine;
+    int j = 0;
+    int i;
+    int *preco = new int;
 
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){//Exibindo opções de show
-        int *horarios;
+        
+        int *horarios = new int;
 
+        
         std::cout << std::endl << itCine->get_id() << " ";
-        std::cout << itCine->get_nome() << " ";
+        std::cout << itCine->get_nome()<< " ";
         itCine->get_horarios(horarios);
+        cout<<horarios[j];
 
-        for(int j = 0; j != sizeof(horarios); j++){//Exibição de Horarios
-            std::cout << " " << horarios[j] ;
+        while(horarios[j] != 0){
+            //Exibição de Horarios
+        
+            std::cout <<"Horarios: " <<" " << horarios[j] ;
+            j++;
+
         }
-        std::cout << itCine->get_duracao();
+        std::cout <<"Duracao: "<< itCine->get_duracao();
         std::cout << std::endl << std::endl;
     }
-    //--------O ERRO ESTA NA FUNÇÃO ACIMA-----------
+    
     cin >> i;
-
+    j = 0;
 
 //tratamento de erros
     if(i > _cine.size()){
@@ -45,20 +52,27 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){//Logica de Compra 
         if (i == itCine->get_id()){
 
-            int *horarios,k,*capacidade,q,quant;//auxiliares
+            int *horarios = new int[100];
+            int k;
+            int *capacidade = new int[100];
+            int q,quant;//auxiliares
 
             itCine->get_horarios(horarios);
             
-            std::cout << "Escolha o Horario " << endl;
+            
 
-            for(int j = 0; j != sizeof(horarios); j++){//Imprimindo as opções de horarios
-                std::cout << j << " " << horarios[j] << std::endl;
-            }
+            while(horarios[j] != 0){
+            //Exibição de Horarios
+        
+            std::cout << " " << horarios[j]<<endl ;
+            j++;
 
+        }
+            std::cout <<endl<< "Escolha o Horario " << endl;
             cin >> k;
 
 //Tratamento de erros
-            if(k > sizeof(horarios)){
+            if(k > j){
                 std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
                 return;
             }

@@ -11,6 +11,7 @@
 
 
 int main(){
+        
 /* ---------- Criação de Objetos - USUÁRIOS ---------- */
 
     vector<Crianca> crianca; //iniciar o vetor de crianças

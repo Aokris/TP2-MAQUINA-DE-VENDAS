@@ -10,7 +10,7 @@ class Cinema : public  Evento{
         int _duracao;
     public:
         Cinema(int id, string nome, int id_dono, int *capacidade, int *precos, int *horario, int duracao);
-        void get_horarios(int *horarios);
+        int get_horarios(int *horarios);
         int get_duracao();
 };
 

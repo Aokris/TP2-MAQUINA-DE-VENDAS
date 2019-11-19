@@ -8,8 +8,8 @@ Cinema::Cinema(int id, string nome, int id_dono, int *capacidade, int *precos, i
     _horarios = horario;
 }
 
-void Cinema::get_horarios(int *horarios){
-    horarios = _horarios;
+int Cinema::get_horarios(int *horarios){
+    _horarios = horarios;
 }
 int Cinema::get_duracao(){
     return _duracao;
