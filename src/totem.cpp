@@ -26,30 +26,32 @@ void Totem::ListarUsuarios(std::vector<Crianca> crianca, std::vector<Adulto> adu
     std::vector<Crianca>::iterator itCria;
     std::vector<Adulto>::iterator itAdul;
     std::vector<Idoso>::iterator itIdos;
-
+    cout << "Criancas:" << endl;
     for (itCria = crianca.begin(); itCria != crianca.end();itCria++){//Impressão de todas as crianças
-        std::cout << endl << itCria->get_id() << " ";
-        std::cout << itCria->get_nome() << " ";
-        std::cout << itCria->get_idade() << " ";
-        std::cout << itCria->get_id_responsavel() << " ";
-        std::cout << itCria->get_saldo() << " ";
-        std::cout << itCria->get_categoria() << std::endl;
+        std::cout << "ID: " << itCria->get_id() << " - ";
+        std::cout << "Nome: " << itCria->get_nome() << " - ";
+        std::cout << "Idade: " << itCria->get_idade() << " - ";
+        std::cout << "ID do Responsavel: " << itCria->get_id_responsavel() << " - ";
+        std::cout << "Saldo: " << itCria->get_saldo() << " - ";
+        std::cout << "Categoria: " << itCria->get_categoria() << endl;
     }
 
+    cout << endl << "Adultos:" << endl;
     for (itAdul = adulto.begin(); itAdul != adulto.end();itAdul++){// Imprime todos os adultos 
-        std::cout << endl << itAdul->get_id() << " ";
-        std::cout << itAdul->get_nome() << " ";
-        std::cout << itAdul->get_idade() << " ";
-        std::cout << itAdul->get_saldo() << " ";
-        std::cout << itAdul->get_categoria() << std::endl;
+        std::cout << "ID: " << itAdul->get_id() << " ";
+        std::cout << "Nome: " << itAdul->get_nome() << " ";
+        std::cout << "Idade: " << itAdul->get_idade() << " ";
+        std::cout << "Saldo: " << itAdul->get_saldo() << " ";
+        std::cout << "Categoria: " << itAdul->get_categoria() << std::endl;
     }
 
+    cout << endl << "Idosos:" << endl;
     for (itIdos = idoso.begin(); itIdos != idoso.end();itIdos++){//Imprime todos os idosos
-        std::cout << endl << itIdos->get_id() << " ";
-        std::cout << itIdos->get_nome() << " ";
-        std::cout << itIdos->get_idade() << " ";
-        std::cout << itIdos->get_saldo() << " ";
-        std::cout << itIdos->get_categoria() << std::endl;
+        std::cout << "ID: " << itIdos->get_id() << " ";
+        std::cout << "Nome: " << itIdos->get_nome() << " ";
+        std::cout << "Idade: " << itIdos->get_idade() << " ";
+        std::cout << "Saldo: " << itIdos->get_saldo() << " ";
+        std::cout << "Categoria: " <<itIdos->get_categoria() << std::endl;
     }
 }
 
