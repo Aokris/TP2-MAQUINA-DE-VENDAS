@@ -32,16 +32,18 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
     }
     
     cin >> i;
-
+    int count = 0;
 //tratamento de erros
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){
         if(i == itCine->get_id()){
+        count++;
         break;
-        }else{
+        }
+    }
+        if(count == 0){
             std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
             return;
         }
-    }
 
     if(i < 0){
         std::cout << ("Erro: filme nao existente") << std::endl;
@@ -66,15 +68,21 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
             std::cout <<endl<< "Escolha o Horario " << endl;
             cin >> k;
 
+    count = 0;
 //Tratamento de erros
     for(int j = 0; j < horarios.size();j++){
             if(k == horarios[j]){
-                break;
-            }else { 
-                std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
-                return;
+                count++;
             }
-        }                
+        }
+
+    
+   
+    if(count == 0){ 
+        std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
+        return;
+    }  
+
         if(k < 0){
             std::cout << ("Erro: filme nao existente") << std::endl;
             return;
