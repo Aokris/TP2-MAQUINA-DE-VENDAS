@@ -39,8 +39,8 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
         if(n == it->get_id()){
 
             int *capacidade,*preco;
-            it->get_capacidade(capacidade);
-            it->get_preco(preco);
+            it->get_capacidade();
+            it->get_preco();
             
             do{//Realização de compra de ingressos
 
