@@ -292,8 +292,6 @@ void NumeroDependentes(int *depend, int qp, int np){
 
 //Função maquina de vendas
 void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate){
-    
-    MaquinaCinema cine;
 
     int n;
     
@@ -312,21 +310,17 @@ void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<T
         MaquinaCinema *cine = new MaquinaCinema;
         cine->MaquinaDeVendas();
         cine->VendasCinema(cinema,adulto);
-        delete [] cine;
     }else if (n == 2){
         MaquinaShow *sshow = new MaquinaShow;
         sshow->MaquinaDeVendas();
         sshow->VendasShow(show,adulto);
-        delete [] sshow;
     }else if( n == 3){
         MaquinaBoate *boat = new MaquinaBoate;
         boat->MaquinaDeVendas();
         boat->VendasBoate(boate,adulto);
-        delete [] boat;
     }else if(n == 4){
         MaquinaFantoche *fant = new MaquinaFantoche;
         fant->MaquinaDeVendas();
         fant->VendasFantoche(fantoche,adulto);
-        delete [] fant;
     }
 }
