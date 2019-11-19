@@ -12,22 +12,22 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
 
     vector<TeatroFantoche>::iterator itFant;
 
-    int i,*preco,*hr;
+    int i;
+    vector<int> preco,hr;
     cout << " Digite o ID do evento " << endl;
 
     for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){//Exibindo opções de show
-        int *horarios;
+        vector<int> horarios;
 
         std::cout << std::endl << itFant->get_id() << " ";
         std::cout << itFant->get_nome() << " ";
 
-        itFant->get_horarios(horarios);
+        horarios = itFant->get_horarios();
 
         for(int j = 0; j != sizeof(horarios); j++){//Exibição de Horarios
             std::cout << " " << horarios[j];
         }
         
-        delete [] horarios;
         std::cout << std::endl;
     }
     
@@ -47,8 +47,9 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
     for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){//Logica de Compra 
         if (i == itFant->get_id()){
 
-            int *horarios,k,*capacidade,q,quant;
-            itFant->get_horarios(horarios);
+            int k,q,quant;
+            vector<int> capacidade, horarios;
+            horarios = itFant->get_horarios();
             
             std::cout << "Escolha o Horario " << endl;
 
@@ -69,7 +70,7 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
             }
 
             itFant->set_preco(preco);
-            itFant->get_capacidade(capacidade);
+            capacidade = itFant->get_capacidade();
 
             do{//Realização de compra de ingressos
 
@@ -95,7 +96,7 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
 
             }while(q != sizeof(capacidade));
             
-            itFant->get_horarios(hr);
+            hr = itFant->get_horarios();
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itFant->get_id() << " " << itFant->get_nome() << " ";

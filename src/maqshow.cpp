@@ -21,8 +21,8 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
         cout<<it->get_id()<<" "<<it->get_nome()<<endl;
         std::cout << " - Abertura Portoes: " << it->get_aberturaPortoes();
         
-        string *art;
-        it->get_artistas(art);
+        vector<string> art;
+        art = it->get_artistas();
         
         cout << " - Artistas - " << endl;
         for (int i = 0; i < sizeof(art);i++){//Imprime os artistas
@@ -49,9 +49,9 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
     for(it = _show.begin(); it!=_show.end(); it++){//realização de compra
         if (it->get_id() == n){
 
-            int *capacidade,*preco;
-            it->get_capacidade(capacidade);
-            it->get_preco(preco);
+            vector<int> capacidade,preco;
+            capacidade = it->get_capacidade();
+            preco = it->get_preco();
             
             do{//Realização de compra de ingressos
 
