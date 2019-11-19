@@ -7,7 +7,7 @@ void MaquinaCinema::MaquinaDeVendas(){
     cout << " Digite o ID do Filme Desejado " << endl;
 }
 
-void VendasIngressos(vector<Cinema> _cine,Usuario *Usuario){
+void MaquinaCinema::VendasIngressos(vector<Cinema> _cine,Usuario *Usuario){
     vector<Cinema>::iterator itCine;
 
     int i,*preco;
