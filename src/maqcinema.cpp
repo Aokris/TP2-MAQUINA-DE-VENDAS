@@ -47,12 +47,12 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
         std::cout << ("Erro: filme nao existente") << std::endl;
         return;
     }
-
+    int k;
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){//Logica de Compra 
         if (i == itCine->get_id()){
 
             vector<int> horarios;
-            int k;
+            
             vector<int> capacidade;
             int q,quant;//auxiliares
 
