@@ -2,7 +2,13 @@
 
 using namespace std;
 
-void MaquinaShow::MaquinaDeVendas(vector<Show> show,Usuario * Usuario){
+void MaquinaShow::MaquinaDeVendas(){
+    
+    cout << " Digite o ID do Filme Desejado " << endl;
+}
+
+
+void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
     _show = show;
     int quant = 0, q = 0;
 
@@ -60,13 +66,13 @@ void MaquinaShow::MaquinaDeVendas(vector<Show> show,Usuario * Usuario){
 
                 if(quant <= capacidade[q] && quant >= 0){
                     
-                    if(Usuario->get_categoria() == "idoso"){
+                    if(adulto.get_categoria() == "idoso"){
                         capacidade[q] = capacidade[q] - quant;
-                        Usuario->set_saldo(quant * it->get_quota_Idoso());
+                        adulto.set_saldo(quant * it->get_quota_Idoso());
                         
-                    }else if(Usuario->get_categoria() == "adulto"){
+                    }else if(adulto.get_categoria() == "adulto"){
                         capacidade[q] = capacidade[q] - quant;
-                        Usuario->set_saldo(quant * preco[q]);
+                        adulto.set_saldo(quant * preco[q]);
                     }
                     
                     capacidade[q] - quant;
@@ -81,8 +87,8 @@ void MaquinaShow::MaquinaDeVendas(vector<Show> show,Usuario * Usuario){
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << it->get_id()<< " " << it->get_nome()<< " - Abertura - ";
             std::cout << it->get_aberturaPortoes() << std::endl<< std::endl;
-            std::cout << Usuario->get_id() << " " << Usuario->get_nome();
-            std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
+            std::cout << adulto.get_id() << " " << adulto.get_nome();
+            std::cout << " Saldo Atual: " << adulto.get_saldo() << std::endl << std::endl;
             
             return;
 

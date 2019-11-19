@@ -9,7 +9,7 @@ void MaquinaCinema::MaquinaDeVendas(){
 
 void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
     
-    //-----------ERRO NA FUNÇÃO, SEGMENTATION FAULT------------
+    //-----------ERRO NA FUNÇÃO CINEMA, SEGMENTATION FAULT------------
     vector<Cinema>::iterator itCine;
 
     int i,*preco;
@@ -28,7 +28,6 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
         std::cout << std::endl << std::endl;
     }
     //--------O ERRO ESTA NA FUNÇÃO ACIMA-----------
-
     cin >> i;
 
 

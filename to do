@@ -15,8 +15,8 @@ Parte 3 - Maquinas de Vendas
     - MaquinaFantoche(Ruhann - ok)
     - MaquinaCinema(Ruhann - ok)
     - MaquinaShow(Ruhann - ok)
-    - MaquinaBoate(Bruno - )
+    - MaquinaBoate(Bruno - ok)
 
 Parte 4 - Encerramento
-    - Imprimir ID, Nome, numero de ingressos comprados, e saldo final de quem comprou
-    - Imprimir ID, nome do evento, numero total de ingressos vendidos de eventos vendidos
+    - Imprimir ID, Nome, numero de ingressos comprados, e saldo final de quem comprou (Revisar)
+    - Imprimir ID, nome do evento, numero total de ingressos vendidos de eventos vendidos (Revisar)

@@ -8,8 +8,8 @@ class MaquinaFantoche:public Totem{
         vector<TeatroFantoche> _fant;
         int id;
     public:
-    void MaquinaDeVendas(vector<TeatroFantoche> fant,Usuario * Usuario);
-    void get_dados();
+    void MaquinaDeVendas();
+    void VendasFantoche(vector<TeatroFantoche> fant,Adulto adulto);
 };
 
 #endif

@@ -5,9 +5,10 @@
 
 class MaquinaBoate:public Totem{
     private:
-    vector<Boate> _boate;
+        vector<Boate> _boate;
     public:    
-    void MaquinaDeVendas(vector<Boate> boate, Usuario *Usuario);
+        void MaquinaDeVendas();
+        void VendasBoate(vector<Boate> boate,Adulto adulto);
     
 };
 
