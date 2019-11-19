@@ -7,7 +7,7 @@ void MaquinaFantoche::MaquinaDeVendas(){
     cout << " Digite o ID do Filme Desejado " << endl;
 }
 
-void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant,Adulto adulto){
+void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto){
     _fant = fant;
 
     vector<TeatroFantoche>::iterator itFant;
