@@ -10,16 +10,16 @@ class Evento{
         int _id;
         string _nome;
         int _id_dono;
-        int *_capacidade;
-        int *_precos;
+        vector<int> _capacidade;
+        vector<int> _precos;
     
     public:
-        Evento(int id, string nome, int id_dono, int *capacidade, int *precos);
+        Evento(int id, string nome, int id_dono, vector<int> capacidade, vector<int> precos);
         int get_id();
         string get_nome();
-        void get_capacidade(int *capacidade);
-        void set_capacidade(int *capacidade);
-        void set_preco(int *preco);
-        void get_preco(int *preco);
+        vector<int> get_capacidade();
+        void set_capacidade(vector<int> capacidade);
+        void set_preco(vector<int> precos);
+        vector<int> get_preco();
 };
 #endif

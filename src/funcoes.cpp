@@ -135,6 +135,7 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
             }
 
             int *horarios = new int[999];
+            vector<int> horario;
             // Se o evento não for do tipo Adulto, a leitura dos horários é realizada
             int aux_size = tratamento2.size() - i;
             if(categoriaEven == "infantil"){
@@ -148,12 +149,12 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
 
             } else if(categoriaEven == "cinema"){
                 for(int aux_h = 0; aux_h < aux_size - 1; aux_h++){
-                    horarios[aux_h] = stoi(tratamento2[i]); i++;
+                    horario.push_back(stoi(tratamento2[i])); i++;
                 }
                 
                 duracao = stoi(tratamento2[i]); i++;
 
-                Cinema cine(IdEven, nomeEven, IdDono[contagem_donos], ingEven, ValorEven, horarios, duracao);
+                Cinema cine(IdEven, nomeEven, IdDono[contagem_donos], ingEven, ValorEven, horario, duracao);
                 cinema.push_back(cine);
                 qCine++;
 

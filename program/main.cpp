@@ -87,7 +87,9 @@ int main(){
 
             int contagem_donos = 0;
             le_eventos(contagem_donos, qBoate, qShow, qCine, qFanto, IdDono, maiorQuota, idMaiorQuota, file_eventos, cinema, show, boate, fantoche, precos);
-
+            /*vector<int> hr;
+            hr = cinema.begin()->get_horarios();
+            cout<<hr[0]<<endl<<endl;*/
             //executa as atividades de leitura de dados e inicialização de estruturas que você implementou na primeira parte do trabalho prático.
             Totem::InicializarEstruturasUsuario(crianca, adulto, idoso);
             Totem::InicializarEstruturasEvento(show, cinema, fantoche, boate);

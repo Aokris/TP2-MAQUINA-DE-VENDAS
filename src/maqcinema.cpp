@@ -1,4 +1,5 @@
 #include "maqcinema.h"
+#include <vector>
 
 using namespace std;
 
@@ -10,38 +11,36 @@ void MaquinaCinema::MaquinaDeVendas(){
 void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
 
     vector<Cinema>::iterator itCine;
-    int j = 0;
     int i;
     int *preco = new int;
 
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){//Exibindo opções de show
         
-        int *horarios = new int;
-
+        vector<int> horarios;
         
         std::cout << std::endl << itCine->get_id() << " ";
         std::cout << itCine->get_nome()<< " ";
-        itCine->get_horarios(horarios);
-        cout<<horarios[j];
+        horarios = itCine->get_horarios();
 
-        while(horarios[j] != 0){
-            //Exibição de Horarios
-        
-            std::cout <<"Horarios: " <<" " << horarios[j] ;
-            j++;
-
+        for(int j = 0; j < horarios.size();j++){
+            //Exibição de Horarios        
+            std::cout <<"Horarios: " <<" " << horarios[j];
         }
+
         std::cout <<"Duracao: "<< itCine->get_duracao();
         std::cout << std::endl << std::endl;
     }
     
     cin >> i;
-    j = 0;
 
 //tratamento de erros
-    if(i > _cine.size()){
-        std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
-        return;
+    for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){
+        if(i == itCine->get_id()){
+        break;
+        }else{
+            std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
+            return;
+        }
     }
 
     if(i < 0){
@@ -52,34 +51,39 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){//Logica de Compra 
         if (i == itCine->get_id()){
 
-            int *horarios = new int[100];
+            vector<int> horarios;
             int k;
-            int *capacidade = new int[100];
+            vector<int> capacidade;
             int q,quant;//auxiliares
 
-            itCine->get_horarios(horarios);
+            horarios = itCine->get_horarios();
             
-            
-
-            while(horarios[j] != 0){
-            //Exibição de Horarios
-        
-            std::cout << " " << horarios[j]<<endl ;
-            j++;
-
+        for(int j = 0; j < horarios.size();j++){
+            //Exibição de Horarios        
+            std::cout <<"Horarios: " <<" " << horarios[j] ;
         }
+
             std::cout <<endl<< "Escolha o Horario " << endl;
             cin >> k;
 
+        for(int j = 0; j < horarios.size();j++){
+            //Exibição de Horarios        
+            std::cout <<"Horarios: " <<" " << horarios[j] ;
+            j++;
+        }
 //Tratamento de erros
-            if(k > j){
+    for(int j = 0; j < horarios.size();j++){
+            if(i == horarios[j]){
+                break;
+            }else { 
                 std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
                 return;
             }
-            if(k < 0){
-                    std::cout << ("Erro: filme nao existente") << std::endl;
-                    return;
-            }
+        }                
+        if(k < 0){
+            std::cout << ("Erro: filme nao existente") << std::endl;
+            return;
+        }
 
             itCine->get_capacidade(capacidade);
             itCine->get_preco(preco);

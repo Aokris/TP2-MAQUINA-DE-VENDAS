@@ -1,8 +1,9 @@
 #include "evento.h"
 #include <iostream>
+#include <vector>
 #include <string>
 
-Evento::Evento(int id, string nome, int id_dono, int *capacidade, int *precos){
+Evento::Evento(int id, string nome, int id_dono, vector<int> capacidade, vector<int> precos){
     _id = id;
     _nome =  nome;
     _id_dono = id_dono;
@@ -17,15 +18,15 @@ int Evento::get_id(){
 string Evento::get_nome(){
     return _nome;
 }
-void Evento::get_capacidade(int *capacidade){
-    capacidade = _capacidade;
+vector<int> Evento::get_capacidade(){
+    return _capacidade;
 }
-void Evento::set_capacidade(int *capacidade){
+void Evento::set_capacidade(vector<int> capacidade){
     _capacidade = capacidade;
 }
-void Evento::get_preco(int *preco){
-    preco = _precos;
+vector<int> Evento::get_preco(){
+    return _precos;
 }
-void Evento::set_preco(int *preco){
-    _precos = preco;
+void Evento::set_preco(vector<int> precos){
+    _precos = precos;
 }
