@@ -294,6 +294,11 @@ void NumeroDependentes(int *depend, int qp, int np){
 void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate){
 
     int n;
+
+    MaquinaCinema cine;
+    MaquinaBoate boat;
+    MaquinaFantoche fant;
+    MaquinaShow sshow;
     
     cout << "SUBCATEGORIAS DE EVENTOS" << endl << endl;
     cout << "Favor escolher uma das opções abaixo:" << endl << endl;
@@ -306,21 +311,17 @@ void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<T
     cin >> n;
 
     //implementar o objeto das respectivas categorias
-    if(n == 1){
-        MaquinaCinema *cine = new MaquinaCinema;
-        cine->MaquinaDeVendas();
-        cine->VendasCinema(cinema,adulto);
+    if(n == 1){       
+        cine.MaquinaDeVendas();
+        cine.VendasCinema(cinema,adulto);
     }else if (n == 2){
-        MaquinaShow *sshow = new MaquinaShow;
-        sshow->MaquinaDeVendas();
-        sshow->VendasShow(show,adulto);
+        sshow.MaquinaDeVendas();
+        sshow.VendasShow(show,adulto);
     }else if( n == 3){
-        MaquinaBoate *boat = new MaquinaBoate;
-        boat->MaquinaDeVendas();
-        boat->VendasBoate(boate,adulto);
+        boat.MaquinaDeVendas();
+        boat.VendasBoate(boate,adulto);
     }else if(n == 4){
-        MaquinaFantoche *fant = new MaquinaFantoche;
-        fant->MaquinaDeVendas();
-        fant->VendasFantoche(fantoche,adulto);
+        fant.MaquinaDeVendas();
+        fant.VendasFantoche(fantoche,adulto);
     }
 }
