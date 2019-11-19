@@ -4,6 +4,7 @@
 #include <iostream>
 #include <string>
 #include "usuario.h"
+#include<vector>
 
 class Evento{
     protected:

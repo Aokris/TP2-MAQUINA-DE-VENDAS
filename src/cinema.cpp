@@ -3,7 +3,7 @@
 #include <string>
 #include <vector>
 
-Cinema::Cinema(int id, string nome, int id_dono, int *capacidade, int *precos, vector<int> horarios, int duracao):
+Cinema::Cinema(int id, string nome, int id_dono, vector<int> capacidade, vector<int> precos, vector<int> horarios, int duracao):
     Evento(id, nome, id_dono, capacidade, precos){
     _duracao = duracao;
     _horarios = horarios;

@@ -3,13 +3,14 @@
 
 #include <iostream>
 #include "eventoinfantil.h"
+#include <vector>
 
 class TeatroFantoche : public  EventoInfantil{
     protected:
-        int *_horarios;
+        vector<int> _horarios;
     public:
-        TeatroFantoche(int *horarios, int id, string nome, int id_dono, int *capacidade, int *precos);
-        void get_horarios(int *horarios);
+        TeatroFantoche(vector<int> horarios, int id, string nome, int id_dono, vector<int> capacidade, vector<int> precos);
+        vector<int> get_horarios();
 };
 
 #endif

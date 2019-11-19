@@ -122,28 +122,31 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
 
             NumTipos = stoi(tratamento2[i]); i++;
 
-            int *ingEven = new int[NumTipos];
-            int *ValorEven = new int[NumTipos];
+            //int *ingEven = new int[NumTipos];
+            //int *ValorEven = new int[NumTipos];
+
+            vector<int> ingEven;
+            vector<int> ValorEven;
 
             for(int aux_tipos = 0; aux_tipos < NumTipos; aux_tipos++){
 
-                ingEven[aux_tipos] = stoi(tratamento2[i]); i++;
+                ingEven.push_back(stoi(tratamento2[i])); i++;
 
-                ValorEven[aux_tipos] = stof(tratamento2[i]); i++;
+                ValorEven.push_back(stof(tratamento2[i])); i++;
 
                 precos[ValorEven[aux_tipos]] += ingEven[aux_tipos];
             }
 
-            int *horarios = new int[999];
+            //int *horario = new int[999];
             vector<int> horario;
             // Se o evento não for do tipo Adulto, a leitura dos horários é realizada
             int aux_size = tratamento2.size() - i;
             if(categoriaEven == "infantil"){
                 for(int aux_h = 0; aux_h < aux_size; aux_h++){
-                    horarios[aux_h] = stoi(tratamento2[i]); i++;
+                    horario.push_back(stoi(tratamento2[i])); i++;
                 }
 
-                TeatroFantoche fan(horarios, IdEven, nomeEven, IdDono[contagem_donos], ingEven, ValorEven);
+                TeatroFantoche fan(horario, IdEven, nomeEven, IdDono[contagem_donos], ingEven, ValorEven);
                 fantoche.push_back(fan);
                 qFanto++;
 
@@ -177,18 +180,16 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
                 } else if(subcategEven == "show"){
                     abertura = stoi(tratamento2[i]); i++;
                     
-                    string *artistas = new string[999];
+                    vector<string> artistas;
                     int aux_arts = 0;
                     for(; i <= tratamento2.size(); i++){
-                        artistas[aux_arts] = tratamento2[i];
+                        artistas.push_back(tratamento2[i]);
                         aux_arts++;
                     }
 
                     Show sho(quotaIdoso, abertura, artistas, IdEven, nomeEven, IdDono[contagem_donos], ingEven, ValorEven);
                     show.push_back(sho);
                     qShow++;
-
-                    delete [] artistas;
                 }
 
 
@@ -198,9 +199,9 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
 
             }
 
-            delete [] horarios;
-            delete [] ingEven;
-            delete [] ValorEven;
+            //delete [] horario;
+            //delete [] ingEven;
+           // delete [] ValorEven;
 
             contagem_donos++;
 

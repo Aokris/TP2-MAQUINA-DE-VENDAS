@@ -10,7 +10,7 @@ class Cinema : public  Evento{
         vector<int> _horarios;
         int _duracao;
     public:
-        Cinema(int id, string nome, int id_dono, int *capacidade, int *precos, vector<int> horarios, int duracao);
+        Cinema(int id, string nome, int id_dono, vector<int> capacidade, vector<int> precos, vector<int> horarios, int duracao);
         vector<int> get_horarios();
         int get_duracao();
 };

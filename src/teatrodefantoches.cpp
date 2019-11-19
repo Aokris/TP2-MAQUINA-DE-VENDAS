@@ -2,11 +2,11 @@
 #include <iostream>
 #include <string>
 
-TeatroFantoche::TeatroFantoche(int *horarios, int id, string nome, int id_dono, int *capacidade, int *precos):
+TeatroFantoche::TeatroFantoche(vector<int> horarios, int id, string nome, int id_dono, vector<int> capacidade, vector<int> precos):
     EventoInfantil(id, nome, id_dono, capacidade, precos){
     _horarios = horarios;
 }
 
-void TeatroFantoche::get_horarios(int *horarios){
-    horarios = _horarios;
+vector<int> TeatroFantoche::get_horarios(){
+    return _horarios;
 }

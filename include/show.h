@@ -3,14 +3,16 @@
 
 #include <iostream>
 #include "eventoadulto.h"
+#include <vector>
+#include <string>
 
 class Show : public  EventoAdulto{
     protected:
     int _aberturaPortoes;
-    string *_artistas;
+    vector<string> _artistas;
     public:
-        Show(int quota_idoso, int aberturaPortoes, string *artistas, int id, string nome, int id_dono, int *capacidade, int *precos);
-        void get_artistas(string * artista);
+        Show(int quota_idoso, int aberturaPortoes, vector<string> artistas, int id, string nome, int id_dono, vector<int> capacidade, vector<int> precos);
+        vector<string> get_artistas();
         int get_aberturaPortoes();
 };
 
