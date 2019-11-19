@@ -46,10 +46,9 @@ int main(){
     int *idad = new int[999];
     int *IdDono = new int[999];
 
+    cout << "SISTEMA DE VENDAS DE INGRESSO" << endl;
     while(n != 4){
-
-        cout << "SISTEMA DE VENDAS DE INGRESSO" <<endl << endl;
-        cout << "Favor escolher uma das opções abaixo:" << endl << endl;
+        cout << endl << "Favor escolher uma das opções abaixo:" << endl << endl;
         cout << "1. Carregar usuarios e eventos" << endl;
         cout << "2. Exibir usuarios cadastrados" << endl;
         cout << "3. Comprar ingressos" << endl;
