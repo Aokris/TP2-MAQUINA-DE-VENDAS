@@ -309,7 +309,7 @@ void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<T
     {
     case 1:        
         cine.MaquinaDeVendas();
-        cine.VendasCinema(cinema,adulto);
+        cine.VendasCinema(cinema, adulto);
         break;
     case 2:
         //MaquinaBoate::MaquinaDeVendas();
