@@ -66,14 +66,9 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
             std::cout <<endl<< "Escolha o Horario " << endl;
             cin >> k;
 
-        for(int j = 0; j < horarios.size();j++){
-            //Exibição de Horarios        
-            std::cout <<"Horarios: " <<" " << horarios[j] ;
-            j++;
-        }
 //Tratamento de erros
     for(int j = 0; j < horarios.size();j++){
-            if(i == horarios[j]){
+            if(k == horarios[j]){
                 break;
             }else { 
                 std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
@@ -113,7 +108,7 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itCine->get_id() << " " << itCine->get_nome() << " ";
-            std::cout << horarios[k] << " " << itCine->get_duracao() << std::endl<< std::endl;
+            std::cout << k << " " << itCine->get_duracao() << std::endl<< std::endl;
             std::cout << usuario.get_id() << " " << usuario.get_nome();
             std::cout << " Saldo Atual: " << usuario.get_saldo() << std::endl << std::endl;
             
