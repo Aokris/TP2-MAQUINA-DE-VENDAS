@@ -12,7 +12,7 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
 
     vector<Cinema>::iterator itCine;
     int i;
-    int *preco = new int;
+    vector<int> preco;
 
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){//Exibindo opções de show
         
@@ -85,17 +85,17 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
             return;
         }
 
-            itCine->get_capacidade(capacidade);
-            itCine->get_preco(preco);
+            capacidade = itCine->get_capacidade();
+            preco = itCine->get_preco();
 
             do{//Realização de compra de ingressos
 
                 std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
                 cin >> quant;
 
-                if(capacidade[q] == 0 && q < sizeof(capacidade)){
+                if(capacidade[q] == 0 && q < capacidade.size()){
                     q++;
-                }else if (q == sizeof(capacidade)){
+                }else if (q == capacidade.size()){
                     std::cout << "Quantidade de ingressos esgotada" << std::endl;
                 }
 
@@ -109,7 +109,7 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
                     std::cout << "Quantidade de ingressos maior que a exitente" <<std::endl;
                 }
 
-            }while(q != sizeof(capacidade));
+            }while(q != capacidade.size());
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itCine->get_id() << " " << itCine->get_nome() << " ";
