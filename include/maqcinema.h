@@ -8,7 +8,7 @@ class MaquinaCinema:public Totem{
         vector<Cinema> _cine;        
     public:
         virtual void MaquinaDeVendas();
-        void VendasCinema(vector<Cinema> _cine, Usuario usuario);
+        void VendasCinema(vector<Cinema> _cine, Adulto usuario);
        
 
 };

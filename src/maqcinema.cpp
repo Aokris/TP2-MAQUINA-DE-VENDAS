@@ -7,7 +7,9 @@ void MaquinaCinema::MaquinaDeVendas(){
     cout << " Digite o ID do Filme Desejado " << endl;
 }
 
-void MaquinaCinema::VendasCinema(vector<Cinema> _cine,Usuario usuario){
+void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
+    
+    //-----------ERRO NA FUNÇÃO, SEGMENTATION FAULT------------
     vector<Cinema>::iterator itCine;
 
     int i,*preco;
@@ -25,8 +27,10 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine,Usuario usuario){
         std::cout << itCine->get_duracao();
         std::cout << std::endl << std::endl;
     }
-    
+    //--------O ERRO ESTA NA FUNÇÃO ACIMA-----------
+
     cin >> i;
+
 
 //tratamento de erros
     if(i > _cine.size()){

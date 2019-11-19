@@ -18,17 +18,8 @@
 using namespace std;
 
 class Totem {
-    private:
-      /*  static vector<Crianca> _crianca;
-        static vector<Adulto> _adulto;
-        static vector<Idoso> _idoso;
-
-        static vector<Show> _show;
-        static vector<Cinema> _cinema;
-        static vector<TeatroFantoche> _fantoche;
-        static vector<Boate> _boate;*/
     public:
-        void MaquinaDeVendas();
+        virtual void MaquinaDeVendas() = 0;
         static void Vendas();
         static void InicializarEstruturasUsuario(vector<Crianca> crianca, vector<Adulto> adulto,  vector<Idoso> idoso);
         static void InicializarEstruturasEvento(vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate);
