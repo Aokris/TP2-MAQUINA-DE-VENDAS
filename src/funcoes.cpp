@@ -301,23 +301,25 @@ void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<T
     cin >> n;
 
     //implementar o objeto das respectivas categorias
-    switch(n)
-    {
-    case 1:
-        MaquinaCinema cine;
-        cine.MaquinaDeVendas();
-        cine.VendasCinema(cinema,adulto);
-        break;
-    case 2:
-        MaquinaBoate::MaquinaDeVendas();
-        break;
-    case 3:
-        MaquinaCinema::MaquinaDeVendas();
-        break;
-    case 4:
-        MaquinaFantoche::MaquinaDeVendas();
-        break;
-    default:
-        break;
+    if(n == 1){
+        MaquinaCinema *cine = new MaquinaCinema;
+        cine->MaquinaDeVendas();
+        cine->VendasCinema(cinema,adulto);
+        delete [] cine;
+    }else if (n == 2){
+        MaquinaShow *sshow = new MaquinaShow;
+        sshow->MaquinaDeVendas();
+        sshow->VendasShow(show,adulto);
+        delete [] sshow;
+    }else if( n == 3){
+        MaquinaBoate *boat = new MaquinaBoate;
+        boat->MaquinaDeVendas();
+        boat->VendasBoate(boate,adulto);
+        delete [] boat;
+    }else if(n == 4){
+        MaquinaFantoche *fant = new MaquinaFantoche;
+        fant->MaquinaDeVendas();
+        fant->VendasFantoche(fantoche,adulto);
+        delete [] fant;
     }
 }

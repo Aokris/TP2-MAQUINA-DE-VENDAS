@@ -2,7 +2,12 @@
 
 using namespace std;
 
-void MaquinaBoate::MaquinaDeVendas(vector<Boate> boate, Usuario *Usuario){
+void MaquinaBoate::MaquinaDeVendas(){
+    
+    cout << " Digite o ID do Filme Desejado " << endl;
+}
+
+void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
     _boate = boate;
     int quant = 0, q = 0;
     
@@ -50,13 +55,13 @@ void MaquinaBoate::MaquinaDeVendas(vector<Boate> boate, Usuario *Usuario){
 
                 if(quant <= capacidade[q] && quant >= 0){
                     
-                    if(Usuario->get_categoria() == "idoso"){
+                    if(adulto.get_categoria() == "idoso"){
                         capacidade[q] = capacidade[q] - quant;
-                        Usuario->set_saldo(quant * it->get_quota_Idoso());
+                        adulto.set_saldo(quant * it->get_quota_Idoso());
                         
-                    }else if(Usuario->get_categoria() == "adulto"){
+                    }else if(adulto.get_categoria() == "adulto"){
                         capacidade[q] = capacidade[q] - quant;
-                        Usuario->set_saldo(quant * preco[q]);
+                        adulto.set_saldo(quant * preco[q]);
                     }
                     
                     capacidade[q] - quant;
@@ -71,8 +76,8 @@ void MaquinaBoate::MaquinaDeVendas(vector<Boate> boate, Usuario *Usuario){
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << it->get_id() << " " << it->get_nome()<< " - Duracao: Inicio - ";
             std::cout << it->get_horaInicio()<<" - Fim: " << it->get_horaFim()<<std::endl<< std::endl;
-            std::cout << Usuario->get_id() << " " << Usuario->get_nome();
-            std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
+            std::cout << adulto.get_id() << " " << adulto.get_nome();
+            std::cout << " Saldo Atual: " << adulto.get_saldo() << std::endl << std::endl;
             
             return;
 

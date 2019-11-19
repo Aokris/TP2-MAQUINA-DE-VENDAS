@@ -2,7 +2,12 @@
 
 using namespace std;
 
-void MaquinaFantoche::MaquinaDeVendas(vector<TeatroFantoche> fant,Usuario *Usuario){
+void MaquinaFantoche::MaquinaDeVendas(){
+    
+    cout << " Digite o ID do Filme Desejado " << endl;
+}
+
+void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant,Adulto adulto){
     _fant = fant;
 
     vector<TeatroFantoche>::iterator itFant;
@@ -80,7 +85,7 @@ void MaquinaFantoche::MaquinaDeVendas(vector<TeatroFantoche> fant,Usuario *Usuar
                 if(quant <= capacidade[q] && quant >= 0){
                     
                     capacidade[q] = capacidade[q] - quant;
-                    Usuario->set_saldo(quant * preco[q]);
+                    adulto.set_saldo(quant * preco[q]);
 
                     break;
                     
@@ -95,8 +100,8 @@ void MaquinaFantoche::MaquinaDeVendas(vector<TeatroFantoche> fant,Usuario *Usuar
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itFant->get_id() << " " << itFant->get_nome() << " ";
             std::cout << hr[k] << std::endl<< std::endl;
-            std::cout << Usuario->get_id() << " " << Usuario->get_nome();
-            std::cout << " Saldo Atual: " << Usuario->get_saldo() << std::endl << std::endl;
+            std::cout << adulto.get_id() << " " << adulto.get_nome();
+            std::cout << " Saldo Atual: " << adulto.get_saldo() << std::endl << std::endl;
             
             return;
         }
