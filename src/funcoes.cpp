@@ -289,7 +289,11 @@ void NumeroDependentes(int *depend, int qp, int np){
 
 //Função maquina de vendas
 void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate){
+    
+    MaquinaCinema cine;
+
     int n;
+    
     cout << "SUBCATEGORIAS DE EVENTOS" << endl << endl;
     cout << "Favor escolher uma das opções abaixo:" << endl << endl;
     cout << "1. Cinema" << endl;
