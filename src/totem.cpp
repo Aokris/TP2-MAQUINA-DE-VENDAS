@@ -22,7 +22,7 @@ void Totem::InicializarEstruturasEvento(std::vector<Show> show, std::vector<Cine
 }
 
 //listar todos os usuarios cadastrados
-void Totem::ListarUsuarios(std::vector<Crianca> crianca, std::vector<Adulto> adulto,  std::vector<Idoso> idoso){
+void Totem::ListarUsuarios(std::vector<Crianca> &crianca, std::vector<Adulto> &adulto,  std::vector<Idoso> &idoso){
     std::vector<Crianca>::iterator itCria;
     std::vector<Adulto>::iterator itAdul;
     std::vector<Idoso>::iterator itIdos;
@@ -56,7 +56,7 @@ void Totem::ListarUsuarios(std::vector<Crianca> crianca, std::vector<Adulto> adu
 }
 
 //procura se o id do usuario existe
-int Totem::ComprarIngresso(std::vector<Adulto> adulto,  std::vector<Idoso> idoso){
+int Totem::ComprarIngresso(std::vector<Adulto> &adulto,  std::vector<Idoso> &idoso){
 
     std::vector<Adulto>::iterator itAdul;
     std::vector<Idoso>::iterator itIdos;

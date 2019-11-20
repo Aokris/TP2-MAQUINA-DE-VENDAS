@@ -23,8 +23,8 @@ class Totem {
         static void Vendas();
         static void InicializarEstruturasUsuario(vector<Crianca> crianca, vector<Adulto> adulto,  vector<Idoso> idoso);
         static void InicializarEstruturasEvento(vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate);
-        static void ListarUsuarios(std::vector<Crianca> crianca, std::vector<Adulto> adulto,  std::vector<Idoso> idoso);
-        static int ComprarIngresso(std::vector<Adulto> adulto,  std::vector<Idoso> idoso);
+        static void ListarUsuarios(std::vector<Crianca> &crianca, std::vector<Adulto> &adulto,  std::vector<Idoso> &idoso);
+        static int ComprarIngresso(std::vector<Adulto> &adulto,  std::vector<Idoso> &idoso);
 };
 
 #endif

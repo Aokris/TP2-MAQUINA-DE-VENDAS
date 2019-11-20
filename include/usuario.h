@@ -15,7 +15,7 @@ class Usuario{
         float _saldo;
     
     public:
-        Usuario(int id,string categoria, string nome, int idade, float saldo);
+        Usuario(int id,string categoria, string nome, int idade, float &saldo);
         int get_id();
         string get_categoria();
         string get_nome();
