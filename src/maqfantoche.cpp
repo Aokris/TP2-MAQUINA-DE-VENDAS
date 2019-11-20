@@ -4,7 +4,7 @@ using namespace std;
 
 void MaquinaFantoche::MaquinaDeVendas(){
     
-     cout << "Digite o ID do Filme Desejado " << endl;
+     cout << endl<< "Digite o ID do Filme Desejado " << endl;
 }
 
 void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> &fant, Adulto &adulto){
@@ -29,7 +29,6 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> &fant, Adulto &adult
         
         std::cout << std::endl << std::endl;
     }
-    cout << "Saldo atual: " << adulto.get_saldo() << endl <<endl;
     std::cout << "Opcao: ";
     cin >> i;
 
@@ -57,7 +56,7 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> &fant, Adulto &adult
             vector<int> capacidade, horarios;
             horarios = itFant->get_horarios();
             
-            std::cout << "Horarios: " << endl;
+            std::cout <<endl << "Horarios: " << endl;
 
             for(int j = 0; j != horarios.size(); j++){//Imprimindo as opções de horarios
                 std::cout << horarios[j] << "h ";
@@ -98,16 +97,12 @@ count = 0;
                 }
             }
 
-            for(int j = 0; j<capacidade.size();j++){
-                cout<<capacidade[j]<<endl;
-            }
             cout<<endl;
             do{//Realização de compra de ingressos
 
-                std::cout << std::endl << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
-                std::cout << "Quantidade de ingressos: "<< capacidade[q] << std::endl;
-                std::cout << "Valor do ingresso: " << preco[q] << std::endl << std::endl;
+                std::cout << std::endl << "Digite a quantidade de ingressos que deseja comprar: " ;
                 cin >> quant;
+                cout << endl << std::endl;
 
                 if(capacidade[q] == 0 && q < capacidade.size()){//dando problema aqui
                     q++;

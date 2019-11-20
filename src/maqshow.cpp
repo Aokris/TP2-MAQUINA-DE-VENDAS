@@ -4,7 +4,7 @@ using namespace std;
 
 void MaquinaShow::MaquinaDeVendas(){
     
-    cout << " Digite o ID do Show Desejado " << std::endl;
+    cout << endl<< " Digite o ID do Show Desejado " << std::endl;
 }
 
 
@@ -14,7 +14,6 @@ void MaquinaShow::VendasShow(vector<Show> &show,Adulto &adulto){
 
     vector<Show>::iterator it;
 
-    cout<<"VENDA DE INGRESSO: SHOW"<<std::endl<<std::endl;
     cout<<"Favor escolher uma das opções abaixo:"<<std::endl<<std::endl;
 
     for(it = show.begin(); it!=show.end(); it++){//Imprime as informações 
@@ -27,16 +26,17 @@ void MaquinaShow::VendasShow(vector<Show> &show,Adulto &adulto){
         
         cout << endl << "Lista dos Artistas:" << endl << endl;
         for (int i = 0; i < art.size();i++){//Imprime os artistas
-            cout << " - " << ". " << art[i] << endl;    // Tem algum problema aqui, tá imprimindo um 6
+            cout << "* " << art[i] << endl;    // Tem algum problema aqui, tá imprimindo um 6
         }
     }
 
     cout<<endl<<endl;
 
-    cout << "Saldo atual: " << adulto.get_saldo() << endl <<endl;
     cout<<"Opcao: ";
 
     cin>>n;
+
+    cout << endl;
 
     for(it = show.begin(); it!=show.end(); it++){
         if(n == it->get_id()){
@@ -77,10 +77,10 @@ void MaquinaShow::VendasShow(vector<Show> &show,Adulto &adulto){
             
             do{//Realização de compra de ingressos
 
-                std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl << std::endl;
-                std::cout << "Quantidade de ingressos: "<< capacidade[q] << std::endl;
-                std::cout << "Valor do ingresso: " << preco[q] << std::endl << std::endl;
+                std::cout << "Digite a quantidade de ingressos que deseja comprar: " ;
+
                 cin >> quant;
+                cout << std::endl << std::endl;
 
                 if(capacidade[q] == 0 && q < capacidade.size()){
                     q++;
@@ -112,7 +112,7 @@ void MaquinaShow::VendasShow(vector<Show> &show,Adulto &adulto){
 
             }while(q != capacidade.size());
 
-            std::cout << "Compra Realizada com Sucesso!!" << std::endl;
+            std::cout << endl << "Compra Realizada com Sucesso!!" << std::endl;
             std::cout << "---------------" << std::endl;
             std::cout << "RECIBO DA COMPRA" << std::endl;
             std::cout << "Show: "<< it->get_nome() << " (ID: " << it->get_id() << ")" << std:: endl;

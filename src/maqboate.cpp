@@ -4,7 +4,7 @@ using namespace std;
 
 void MaquinaBoate::MaquinaDeVendas(){
     
-    // cout << "Digite o ID do Filme Desejado " << endl;
+     cout << endl<< "Digite o ID do Filme Desejado " << endl;
 }
 
 void MaquinaBoate::VendasBoate(vector<Boate> &boate, Adulto &adulto){
@@ -13,7 +13,6 @@ void MaquinaBoate::VendasBoate(vector<Boate> &boate, Adulto &adulto){
     
     vector<Boate>::iterator it;
 
-    cout<<"VENDA DE INGRESSO: BOATE"<<endl<<endl;
     cout<<"Favor escolher uma das opções abaixo:"<<endl<<endl;
 
     for(it = _boate.begin(); it!=_boate.end(); it++){
@@ -22,7 +21,6 @@ void MaquinaBoate::VendasBoate(vector<Boate> &boate, Adulto &adulto){
     }
 
     int n;
-    cout << "Saldo atual: " << adulto.get_saldo() << endl <<endl;
     cout<<"Opcao: ";
     cin>>n;
 
@@ -64,10 +62,9 @@ void MaquinaBoate::VendasBoate(vector<Boate> &boate, Adulto &adulto){
             
             do{//Realização de compra de ingressos
 
-                std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
-                std::cout << "Quantidade de ingressos: "<< capacidade[q] << std::endl;
-                std::cout << "Valor do ingresso: " << preco[q] << std::endl << std::endl;
+                std::cout << endl<< "Digite a quantidade de ingressos que deseja comprar: ";
                 cin >> quant;
+                cout << endl << std::endl;
 
                 if(capacidade[q] == 0 && q < capacidade.size()){
                     q++;
@@ -100,7 +97,8 @@ void MaquinaBoate::VendasBoate(vector<Boate> &boate, Adulto &adulto){
                 }
 
             }while(q != capacidade.size());
-            std::cout << "Compra Realizada com Sucesso!!" << std::endl << std::endl;
+
+            std::cout << endl << "Compra Realizada com Sucesso!!" << std::endl << std::endl;
             std::cout << "---------------" << std::endl;
             std::cout << "RECIBO DA COMPRA" << std::endl;
             std::cout << "Evento: " << it->get_nome() << " (ID: " << it->get_id() << ")" << std::endl;
