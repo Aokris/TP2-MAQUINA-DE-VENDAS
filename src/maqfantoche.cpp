@@ -13,7 +13,7 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
     vector<TeatroFantoche>::iterator itFant;
 
     int i = 0,count = 0;
-    vector<int> preco,hr;
+    vector<int> preco;
     cout << " Digite o ID do evento " << endl;
 
     for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){//Exibindo opções de show
@@ -66,13 +66,14 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
             std::cout << "Opcao: ";
             cin >> k;
 
+count = 0;
 //Tratamento de erros
         for(int j = 0; j < horarios.size();j++){
                 if(k == horarios[j]){
                 count++;
                 }
             }
-            
+
             if(count == 0){
                 std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
                 return;
@@ -82,7 +83,7 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
                     return;
             }
 
-            itFant->set_preco(preco);
+            preco = itFant->get_preco();
             capacidade = itFant->get_capacidade();
 
             do{//Realização de compra de ingressos
