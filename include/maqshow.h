@@ -8,7 +8,7 @@ class MaquinaShow : public Totem{
         vector<Show> _show;
     public:
         void MaquinaDeVendas();
-        void VendasShow(vector<Show> *show,Adulto adulto);
+        void VendasShow(vector<Show> &show,Adulto &adulto);
 };
 
 #endif

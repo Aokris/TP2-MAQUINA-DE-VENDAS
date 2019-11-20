@@ -8,7 +8,7 @@ void MaquinaShow::MaquinaDeVendas(){
 }
 
 
-void MaquinaShow::VendasShow(vector<Show> *show,Adulto adulto){
+void MaquinaShow::VendasShow(vector<Show> &show,Adulto &adulto){
    
     int quant = 0, q = 0,n = 0,count = 0;
 
@@ -17,14 +17,15 @@ void MaquinaShow::VendasShow(vector<Show> *show,Adulto adulto){
     cout<<"VENDA DE INGRESSO: SHOW"<<std::endl<<std::endl;
     cout<<"Favor escolher uma das opções abaixo:"<<std::endl<<std::endl;
 
-    for(it = show->begin(); it!=show->end(); it++){//Imprime as informações 
-        std::cout<< "ID: " << it->get_id() << " - Evento: " << it->get_nome() << std::endl;
+    for(it = show.begin(); it!=show.end(); it++){//Imprime as informações 
+        std::cout << "ID: " << it->get_id();
+        std::cout << " - Evento: " << it->get_nome() << std::endl;
         std::cout << "Abertura dos Portoes: " << it->get_aberturaPortoes() << "h" << std::endl;
         
         vector<string> art;
         art = it->get_artistas();
         
-        cout << "Lista dos Artistas:" << endl;
+        cout << endl << "Lista dos Artistas:" << endl << endl;
         for (int i = 0; i < art.size();i++){//Imprime os artistas
             cout << " - " << ". " << art[i] << endl;    // Tem algum problema aqui, tá imprimindo um 6
         }
@@ -32,11 +33,12 @@ void MaquinaShow::VendasShow(vector<Show> *show,Adulto adulto){
 
     cout<<endl<<endl;
 
+    cout << "Saldo atual: " << adulto.get_saldo() << endl <<endl;
     cout<<"Opcao: ";
 
     cin>>n;
 
-    for(it = show->begin(); it!=show->end(); it++){
+    for(it = show.begin(); it!=show.end(); it++){
         if(n == it->get_id()){
             count++;
             break;
@@ -52,7 +54,7 @@ void MaquinaShow::VendasShow(vector<Show> *show,Adulto adulto){
         return;
     }
 
-    for(it = show->begin(); it!=show->end(); it++){//realização de compra
+    for(it = show.begin(); it!=show.end(); it++){//realização de compra
         if (it->get_id() == n){
 
             vector<int> capacidade,preco;
@@ -61,7 +63,9 @@ void MaquinaShow::VendasShow(vector<Show> *show,Adulto adulto){
             
             do{//Realização de compra de ingressos
 
-                std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
+                std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl << std::endl;
+                std::cout << "Quantidade de ingressos: "<< capacidade[q] << std::endl;
+                std::cout << "Valor do ingresso: " << preco[q] << std::endl << std::endl;
                 cin >> quant;
 
                 if(capacidade[q] == 0 && q < capacidade.size()){
@@ -94,11 +98,14 @@ void MaquinaShow::VendasShow(vector<Show> *show,Adulto adulto){
 
             }while(q != capacidade.size());
 
-            std::cout << "Compra Realizada com Sucesso" << std::endl;
-            std::cout << it->get_id()<< " " << it->get_nome()<< " - Abertura - ";
-            std::cout << it->get_aberturaPortoes() << std::endl<< std::endl;
-            std::cout << adulto.get_id() << " " << adulto.get_nome();
-            std::cout << " Saldo Atual: " << adulto.get_saldo() << std::endl << std::endl;
+            std::cout << "Compra Realizada com Sucesso!!" << std::endl;
+            std::cout << "---------------" << std::endl;
+            std::cout << "RECIBO DA COMPRA" << std::endl;
+            std::cout << "Show: "<< it->get_nome() << " (ID: " << it->get_id() << ")" << std:: endl;
+            std::cout << "Horario de Abertura: " << it->get_aberturaPortoes() << std::endl;
+            std::cout << "Comprador: " << adulto.get_nome() << " (ID: " << adulto.get_id() << ")" << std::endl;
+            std::cout << "Saldo Atual: " << adulto.get_saldo() << std::endl;
+            std::cout << "---------------" << std::endl << std::endl;
             
             return;
 

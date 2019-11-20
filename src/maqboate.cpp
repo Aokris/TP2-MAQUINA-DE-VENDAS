@@ -7,7 +7,7 @@ void MaquinaBoate::MaquinaDeVendas(){
     // cout << "Digite o ID do Filme Desejado " << endl;
 }
 
-void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
+void MaquinaBoate::VendasBoate(vector<Boate> &boate, Adulto &adulto){
     _boate = boate;
     int quant = 0, q = 0;
     
@@ -22,6 +22,7 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
     }
 
     int n;
+    cout << "Saldo atual: " << adulto.get_saldo() << endl <<endl;
     cout<<"Opcao: ";
     cin>>n;
 
@@ -52,6 +53,8 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
             do{//Realização de compra de ingressos
 
                 std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
+                std::cout << "Quantidade de ingressos: "<< capacidade[q] << std::endl;
+                std::cout << "Valor do ingresso: " << preco[q] << std::endl << std::endl;
                 cin >> quant;
 
                 if(capacidade[q] == 0 && q < capacidade.size()){
@@ -85,12 +88,14 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
                 }
 
             }while(q != capacidade.size());
-
-            std::cout << "Compra Realizada com Sucesso" << std::endl;
-            std::cout << it->get_id() << " " << it->get_nome()<< " - Duracao: Inicio - ";
-            std::cout << it->get_horaInicio()<<" - Fim: " << it->get_horaFim()<<std::endl<< std::endl;
-            std::cout << adulto.get_id() << " " << adulto.get_nome();
-            std::cout << " Saldo Atual: " << adulto.get_saldo() << std::endl << std::endl;
+            std::cout << "Compra Realizada com Sucesso!!" << std::endl << std::endl;
+            std::cout << "---------------" << std::endl;
+            std::cout << "RECIBO DA COMPRA" << std::endl;
+            std::cout << "Evento: " << it->get_nome() << " (ID: " << it->get_id() << ")" << std::endl;
+            std::cout << "Inicio: " << it->get_horaInicio()<<" - Fim: " << it->get_horaFim() << std::endl;
+            std::cout << "Comprador: " << adulto.get_nome() << " (ID: " << adulto.get_id() << ")" << std::endl;
+            std::cout << "Saldo Atual: " << adulto.get_saldo() << std::endl;
+            std::cout << "---------------" << std::endl << std::endl;
             
             return;
 

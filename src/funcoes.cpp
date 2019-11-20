@@ -291,7 +291,7 @@ void NumeroDependentes(int *depend, int qp, int np){
 }
 
 //Função maquina de vendas
-void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate){
+void menuvenda(Adulto &adulto, vector<Show> &show, vector<Cinema> &cinema, vector<TeatroFantoche> &fantoche, vector<Boate> &boate){
 
     int n;
 

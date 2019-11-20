@@ -8,7 +8,7 @@ class MaquinaBoate:public Totem{
         vector<Boate> _boate;
     public:    
         void MaquinaDeVendas();
-        void VendasBoate(vector<Boate> boate,Adulto adulto);
+        void VendasBoate(vector<Boate> &boate,Adulto &adulto);
     
 };
 

@@ -5,10 +5,10 @@ using namespace std;
 
 void MaquinaCinema::MaquinaDeVendas(){
     
-    // cout << " Digite o ID do Filme Desejado " << endl;
+     cout << " Digite o ID do Filme Desejado " << endl;
 }
 
-void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
+void MaquinaCinema::VendasCinema(vector<Cinema> &_cine, Adulto &usuario){
 
     vector<Cinema>::iterator itCine;
     int i;
@@ -32,14 +32,15 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
         std::cout << std::endl << std::endl;
     }
 
+    cout << "Saldo atual: " << usuario.get_saldo() << endl <<endl;
     std::cout << "Opcao: ";
     std::cin >> i;
     int count = 0;
 //tratamento de erros
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){
         if(i == itCine->get_id()){
-        count++;
-        break;
+            count++;
+            break;
         }
     }
         if(count == 0){
@@ -77,13 +78,11 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
                 count++;
             }
         }
-
-    
    
-    if(count == 0){ 
-        std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
-        return;
-    }  
+        if(count == 0){ 
+            std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
+            return;
+        }  
 
         if(k < 0){
             std::cout << ("Erro: filme nao existente") << std::endl;
@@ -96,6 +95,8 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
             do{//Realização de compra de ingressos
 
                 std::cout << "Digite a quantidade de ingressos que deseja comprar: ";
+                std::cout << "Quantidade de ingressos: "<< capacidade[q] << std::endl;
+                std::cout << "Valor do ingresso: " << preco[q] << std::endl << std::endl;
                 cin >> quant;
 
                 if(capacidade[q] == 0 && q < capacidade.size()){

@@ -23,7 +23,7 @@ void IdadeDosUsuarios(int *idad, int max);
 
 void NumeroDependentes(int *depend, int qp, int np);
 
-void menuvenda(Adulto adulto, vector<Show> show, vector<Cinema> cinema, vector<TeatroFantoche> fantoche, vector<Boate> boate);
+void menuvenda(Adulto &adulto, vector<Show> &show, vector<Cinema> &cinema, vector<TeatroFantoche> &fantoche, vector<Boate> &boate);
 
 
 #endif

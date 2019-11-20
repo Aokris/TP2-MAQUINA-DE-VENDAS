@@ -120,17 +120,17 @@ int main(){
                     //procura o usuario dono da id do comprador
                     for(ita = adulto.begin(); ita!= adulto.end();ita++){
                         if(iduser == ita->get_id()){
-                        Adulto comprador1 = *ita;
-                        //envia o comprador e os objetos de evento para a maquina de vendas
-                        menuvenda(comprador1, show, cinema, fantoche, boate);
+                            Adulto comprador1 = *ita;
+                            //envia o comprador e os objetos de evento para a maquina de vendas
+                            menuvenda(comprador1, show, cinema, fantoche, boate);
                         }
                     }
 
                     for(itd = idoso.begin(); itd!= idoso.end();itd++){
                         if(iduser == itd->get_id()){
-                            Idoso comprador2 = *itd;
-                            //envia o comprador e os objetos de evento para a maquina de vendas
-                            menuvenda(comprador2, show, cinema, fantoche, boate);
+                                Idoso comprador2 = *itd;
+                                //envia o comprador e os objetos de evento para a maquina de vendas
+                                menuvenda(comprador2, show, cinema, fantoche, boate);
                             }
                     }
                 }else{ 

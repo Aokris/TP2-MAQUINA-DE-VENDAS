@@ -9,7 +9,7 @@ class MaquinaFantoche:public Totem{
         int id;
     public:
     void MaquinaDeVendas();
-    void VendasFantoche(vector<TeatroFantoche> fant,Adulto adulto);
+    void VendasFantoche(vector<TeatroFantoche> &fant,Adulto &adulto);
 };
 
 #endif
