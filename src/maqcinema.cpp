@@ -105,6 +105,10 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
                 }
 
                 if(quant <= capacidade[q] && quant >= 0){
+                    if(!(usuario.set_saldo(quant * preco[q]))){
+                        return;
+                    }
+                    capacidade[q] = capacidade[q] - quant;
                     break;
                     
                 }else{
@@ -112,11 +116,6 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
                 }
 
             }while(q != capacidade.size());
-            
-            if(!(usuario.set_saldo(quant * preco[q]))){
-                return;
-            }
-            capacidade[q] = capacidade[q] - quant;
 
             std::cout << "Compra Realizada com Sucesso!!" << std::endl << std::endl;
             std::cout << "---------------" << std::endl;

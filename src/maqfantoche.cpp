@@ -61,9 +61,9 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
             std::cout << "Escolha o Horario " << endl;
 
             for(int j = 0; j != horarios.size(); j++){//Imprimindo as opções de horarios
-                std::cout << " - " << horarios[j];
+                std::cout << " - " << horarios[j] << endl;
             }
-
+            std::cout << "Opcao: ";
             cin >> k;
 
 //Tratamento de erros
@@ -90,13 +90,18 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
                 std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
                 cin >> quant;
 
-                if(capacidade[q] == 0 && q < capacidade.size()){
+                if(capacidade[q] == 0 && q < capacidade.size()){//dando problema aqui
                     q++;
                 }else if (q == capacidade.size()){
                     std::cout << "Quantidade de ingressos esgotada" << std::endl;
                 }
 
                 if(quant <= capacidade[q] && quant >= 0){
+                            
+                    if(!(adulto.set_saldo(quant * preco[q]))){//dando problema aqui
+                        return;
+                    }
+                    capacidade[q] = capacidade[q] - quant;
                     break;
                     
                 }else{
@@ -104,11 +109,6 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
                 }
 
             }while(q != capacidade.size());
-                    
-            if(!(adulto.set_saldo(quant * preco[q]))){
-                return;
-            }
-            capacidade[q] = capacidade[q] - quant;
             
             hr = itFant->get_horarios();
 

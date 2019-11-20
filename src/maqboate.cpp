@@ -62,6 +62,20 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
 
                 if(quant <= capacidade[q] && quant >= 0){
                     
+                    if(adulto.get_categoria() == "idoso"){
+
+                        if(!(adulto.set_saldo(quant * preco[q]))){
+                            return;
+                        }
+                        capacidade[q] = capacidade[q] - quant;
+
+                    }else if(adulto.get_categoria() == "adulto"){
+
+                        if(!(adulto.set_saldo(quant * preco[q]))){
+                            return;
+                        }
+                        capacidade[q] = capacidade[q] - quant;
+                    }
                     break;
                     
                 }else{
@@ -69,21 +83,6 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
                 }
 
             }while(q != capacidade.size());
-
-            if(adulto.get_categoria() == "idoso"){
-                
-                if(!(adulto.set_saldo(quant * preco[q]))){
-                    return;
-                }
-                capacidade[q] = capacidade[q] - quant;
-                
-            }else if(adulto.get_categoria() == "adulto"){
-                
-                if(!(adulto.set_saldo(quant * preco[q]))){
-                    return;
-                }
-                capacidade[q] = capacidade[q] - quant;
-            }
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << it->get_id() << " " << it->get_nome()<< " - Duracao: Inicio - ";
