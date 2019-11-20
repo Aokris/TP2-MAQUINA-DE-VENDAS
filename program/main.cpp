@@ -109,6 +109,7 @@ int main(){
             }
         
         
+<<<<<<< HEAD
         } else if(n == 3){
             if(vdd){
                 //solicita o fornecimento do ID de um usuário. Se o ID fornecido não estiver cadastrado ou for de uma criança, o sistema imprime uma mensagem de erro e retorna ao menu inicial.
@@ -121,6 +122,27 @@ int main(){
                     for(ita = adulto.begin(); ita!= adulto.end();ita++){
                         if(iduser == ita->get_id()){
                         Adulto comprador1 = *ita;
+=======
+        } else if(n == 3){            
+            //solicita o fornecimento do ID de um usuário. Se o ID fornecido não estiver cadastrado ou for de uma criança, o sistema imprime uma mensagem de erro e retorna ao menu inicial.
+            int iduser = Totem::ComprarIngresso(adulto, idoso);
+            
+            //cout <<endl << iduser << endl << endl;
+
+            if(iduser >= 0){
+                //procura o usuario dono da id do comprador
+                for(ita = adulto.begin(); ita!= adulto.end();ita++){
+                    if(iduser == ita->get_id()){
+                    Adulto comprador1 = *ita;
+                    //envia o comprador e os objetos de evento para a maquina de vendas
+                    menuvenda(comprador1, show, cinema, fantoche, boate);
+                    }
+                }
+
+                for(itd = idoso.begin(); itd!= idoso.end();itd++){
+                    if(iduser == itd->get_id()){
+                        Idoso comprador2 = *itd;
+>>>>>>> 58a87ad84692d9039af3f98bd78690b8e07ee378
                         //envia o comprador e os objetos de evento para a maquina de vendas
                         menuvenda(comprador1, show, cinema, fantoche, boate);
                         }
