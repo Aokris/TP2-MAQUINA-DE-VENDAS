@@ -3,6 +3,7 @@
 #include <bits/stdc++.h>
 #include <fstream>
 #include <stdlib.h>
+#include <exception>
 
 #include "funcoes.h"
 #include "crianca.h"
@@ -69,25 +70,17 @@ int main(){
             int qcria = 0, qadult = 0, qidos = 0;
 
         /* ---------- Tratando Entrada - USUÁRIOS ---------- */
-            std::cout << "Para ler o arquivo, digite o nome de cada arquivo correspondente a seguir, no formato 'arquivo.csv'." << endl;
-            std::cout << "O arquivo desejado preferencialmente deve se encontrar na mesma pasta do programa e *deve* usar , como separador" << endl;
-            string file_usuarios;
-            std::cout << "Digite o nome do arquivo de USUARIOS que deseja abrir: ";
-            std::cin >> file_usuarios;
             
             int contagem_users = 0;
             try{
-                le_usuarios(contagem_users, qcria, qadult, qidos, file_usuarios, depend, idad, crianca, adulto, idoso);
+                le_usuarios(contagem_users, qcria, qadult, qidos, "usuarios.csv", depend, idad, crianca, adulto, idoso);
 
         /* ---------- Tratando Entrada - EVENTOS ---------- */
-                string file_eventos;
-                std::cout << "Digite o nome do arquivo de EVENTOS que voce quer abrir: ";
-                std::cin >> file_eventos;
 
                 int contagem_donos = 0;
-                le_eventos(contagem_donos, qBoate, qShow, qCine, qFanto, IdDono, maiorQuota, idMaiorQuota, file_eventos, cinema, show, boate, fantoche, precos);
+                le_eventos(contagem_donos, qBoate, qShow, qCine, qFanto, IdDono, maiorQuota, idMaiorQuota, "eventos.csv", cinema, show, boate, fantoche, precos);
 
-            }catch(...){
+            }catch(exception &e){
                 cout << "\nOs dados no Arquivo são incompativeis. " << '\n';
             }
 
