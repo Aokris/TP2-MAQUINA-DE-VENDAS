@@ -109,6 +109,7 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
                         return;
                     }
                     capacidade[q] = capacidade[q] - quant;
+                    itCine->set_capacidade(capacidade);
                     break;
                     
                 }else{

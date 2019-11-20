@@ -68,6 +68,7 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
                             return;
                         }
                         capacidade[q] = capacidade[q] - quant;
+                        it->set_capacidade(capacidade);
 
                     }else if(adulto.get_categoria() == "adulto"){
 
@@ -75,6 +76,7 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
                             return;
                         }
                         capacidade[q] = capacidade[q] - quant;
+                        it->set_capacidade(capacidade);
                     }
                     break;
                     

@@ -92,7 +92,7 @@ count = 0;
             cout<<endl;
             do{//Realização de compra de ingressos
 
-                std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
+                std::cout << std::endl << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
                 cin >> quant;
 
                 if(capacidade[q] == 0 && q < capacidade.size()){//dando problema aqui
@@ -107,6 +107,7 @@ count = 0;
                         return;
                     }
                     capacidade[q] = capacidade[q] - quant;
+                    itFant->set_capacidade(capacidade);
                     break;
                     
                 }else{
@@ -116,7 +117,7 @@ count = 0;
             }while(q != capacidade.size());
             
 
-            std::cout << "Compra Realizada com Sucesso" << std::endl;
+            std::cout << std::endl << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itFant->get_id() << " " << itFant->get_nome() << " ";
             std::cout << k << std::endl<< std::endl;//horario
             std::cout << adulto.get_id() << " " << adulto.get_nome();

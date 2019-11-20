@@ -8,7 +8,7 @@ void MaquinaShow::MaquinaDeVendas(){
 }
 
 
-void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
+void MaquinaShow::VendasShow(vector<Show> *show,Adulto adulto){
    
     int quant = 0, q = 0,n = 0,count = 0;
 
@@ -17,7 +17,7 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
     cout<<"VENDA DE INGRESSO: SHOW"<<std::endl<<std::endl;
     cout<<"Favor escolher uma das opções abaixo:"<<std::endl<<std::endl;
 
-    for(it = show.begin(); it!=show.end(); it++){//Imprime as informações 
+    for(it = show->begin(); it!=show->end(); it++){//Imprime as informações 
         std::cout<< "ID: " << it->get_id() << " - Evento: " << it->get_nome() << std::endl;
         std::cout << "Abertura dos Portoes: " << it->get_aberturaPortoes() << "h" << std::endl;
         
@@ -36,7 +36,7 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
 
     cin>>n;
 
-    for(it = show.begin(); it!=show.end(); it++){
+    for(it = show->begin(); it!=show->end(); it++){
         if(n == it->get_id()){
             count++;
             break;
@@ -52,7 +52,7 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
         return;
     }
 
-    for(it = show.begin(); it!=show.end(); it++){//realização de compra
+    for(it = show->begin(); it!=show->end(); it++){//realização de compra
         if (it->get_id() == n){
 
             vector<int> capacidade,preco;
@@ -77,12 +77,14 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
                             return;
                         }
                         capacidade[q] = capacidade[q] - quant;
+                        it->set_capacidade(capacidade);
 
                     }else if(adulto.get_categoria() == "adulto"){
                         if(!(adulto.set_saldo(quant * preco[q]))){
                             return;
                         }
                         capacidade[q] = capacidade[q] - quant;
+                        it->set_capacidade(capacidade);
                     }
                     break;
                     
