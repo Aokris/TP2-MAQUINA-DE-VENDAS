@@ -24,7 +24,7 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
 
         horarios = itFant->get_horarios();
 
-        for(int j = 0; j != sizeof(horarios); j++){//Exibição de Horarios
+        for(int j = 0; j != horarios.size(); j++){//Exibição de Horarios
             std::cout << " " << horarios[j];
         }
         
@@ -33,11 +33,18 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
     
     cin >> i;
 
+int count = 0;
 //tratamento de erros
-    if(i > _fant.size()){
-        std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
-        return;
+    for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){
+        if(i == itFant->get_id()){
+        count++;
+        break;
+        }
     }
+        if(count == 0){
+            std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
+            return;
+        }
 
     if(i < 0){
         std::cout << ("Erro: evento nao existente") << std::endl;
@@ -53,33 +60,42 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
             
             std::cout << "Escolha o Horario " << endl;
 
-            for(int j = 0; j != sizeof(horarios); j++){//Imprimindo as opções de horarios
-                std::cout << j << " " << horarios[j] << std::endl;
+            for(int j = 0; j != horarios.size(); j++){//Imprimindo as opções de horarios
+                std::cout << horarios[j] << std::endl;
             }
 
             cin >> k;
 
-//Tratamento de erros
-            if(k > sizeof(horarios)){
-                std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
-                return;
-            }
-            if(k < 0){
-                    std::cout << ("Erro: evento nao existente") << std::endl;
-                    return;
-            }
 
-            itFant->set_preco(preco);
-            capacidade = itFant->get_capacidade();
+           count = 0;
+    //Tratamento de erros
+    for(int j = 0; j < horarios.size();j++){
+            if(k == horarios[j]){
+                count++;
+            }
+    }   
+   
+    if(count == 0){ 
+        std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
+        return;
+    }  
+
+    if(k < 0){
+        std::cout << ("Erro: evento nao existente") << std::endl;
+        return;
+    }
+
+    preco = itFant->get_preco();
+    capacidade = itFant->get_capacidade();
 
             do{//Realização de compra de ingressos
 
                 std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
                 cin >> quant;
 
-                if(capacidade[q] == 0 && q < sizeof(capacidade)){
+                if(capacidade[q] == 0 && q < capacidade.size()){
                     q++;
-                }else if (q == sizeof(capacidade)){
+                }else if (q == capacidade.size()){
                     std::cout << "Quantidade de ingressos esgotada" << std::endl;
                 }
 
@@ -91,16 +107,16 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
                     break;
                     
                 }else{
-                    std::cout << "Quantidade de ingressos maior que a exitente" <<std::endl;
+                    std::cout << "Quantidade de ingressos maior que a existente" <<std::endl;
                 }
 
-            }while(q != sizeof(capacidade));
+            }while(q != capacidade.size());
             
-            hr = itFant->get_horarios();
+            
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itFant->get_id() << " " << itFant->get_nome() << " ";
-            std::cout << hr[k] << std::endl<< std::endl;
+            std::cout << k << std::endl<< std::endl;
             std::cout << adulto.get_id() << " " << adulto.get_nome();
             std::cout << " Saldo Atual: " << adulto.get_saldo() << std::endl << std::endl;
             
