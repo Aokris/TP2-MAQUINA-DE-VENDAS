@@ -90,9 +90,9 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
                 std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
                 cin >> quant;
 
-                if(capacidade[q] == 0 && q < sizeof(capacidade)){
+                if(capacidade[q] == 0 && q < capacidade.size()){
                     q++;
-                }else if (q == sizeof(capacidade)){
+                }else if (q == capacidade.size()){
                     std::cout << "Quantidade de ingressos esgotada" << std::endl;
                 }
 
@@ -103,7 +103,7 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
                     std::cout << "Quantidade de ingressos maior que a exitente" <<std::endl;
                 }
 
-            }while(q != sizeof(capacidade));
+            }while(q != capacidade.size());
                     
             if(!(adulto.set_saldo(quant * preco[q]))){
                 return;
