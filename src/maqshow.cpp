@@ -25,30 +25,32 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
         art = it->get_artistas();
         
         cout << "Lista dos Artistas:" << endl;
-        for (int i = 0; i < sizeof(art);i++){//Imprime os artistas
-            cout << "  " << i << ". " << art[i] << endl;    // Tem algum problema aqui, tá imprimindo um 6
+        for (int i = 0; i < art.size();i++){//Imprime os artistas
+            cout << " - " << ". " << art[i] << endl;    // Tem algum problema aqui, tá imprimindo um 6
         }
-        
     }
-    std::cout <<endl<<endl;
+
+    cout<<endl<<endl;
 
     int n;
     cout<<"Opcao: ";
+
     cin>>n;
     int count = 0;
 
     for(it = _show.begin(); it!=_show.end(); it++){
         if(n == it->get_id()){
             count++;
+            break;
         }
     }
 
     if(count == 0){
-        std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
+        std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
         return;
     }
     if(n < 0){
-        std::cout << ("Erro: filme nao existente") << std::endl;
+        std::cout << ("Erro: evento nao existente") << std::endl;
         return;
     }
 
@@ -80,15 +82,13 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
                         capacidade[q] = capacidade[q] - quant;
                         adulto.set_saldo(quant * preco[q]);
                     }
-                    
-                    capacidade[q] - quant;
                     break;
                     
                 }else{
                     std::cout << "Quantidade de ingressos maior que a exitente" <<std::endl;
                 }
 
-            }while(q != sizeof(capacidade));
+            }while(q != capacidade.size());
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << it->get_id()<< " " << it->get_nome()<< " - Abertura - ";

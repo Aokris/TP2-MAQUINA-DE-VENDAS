@@ -182,7 +182,7 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
                     
                     vector<string> artistas;
                     int aux_arts = 0;
-                    for(; i <= tratamento2.size(); i++){
+                    for(; i < tratamento2.size(); i++){
                         artistas.push_back(tratamento2[i]);
                         aux_arts++;
                     }
