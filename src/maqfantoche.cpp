@@ -12,7 +12,7 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> &fant, Adulto &adult
 
     vector<TeatroFantoche>::iterator itFant;
 
-    int i = 0,count = 0;
+    int i = 0,count = 0,aux = 0;
     vector<int> preco;
 
     for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){//Exibindo opções de show
@@ -62,7 +62,7 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> &fant, Adulto &adult
             for(int j = 0; j != horarios.size(); j++){//Imprimindo as opções de horarios
                 std::cout << horarios[j] << "h ";
             }
-            std::cout  << std::endl << std::endl << "Escolha o horario desejado: ";
+            std::cout  << std::endl << std::endl << "Escolha o horario desejado: " << endl;
             cin >> k;
 
 count = 0;
@@ -84,6 +84,19 @@ count = 0;
 
             preco = itFant->get_preco();
             capacidade = itFant->get_capacidade();
+            
+            for(int t = 1; t < preco.size();t++){
+                if( preco[t-1]> preco[t] ){
+                    
+                    aux = preco[t];
+                    preco[t] = preco[t+1];
+                    preco[t+1] = aux;
+
+                    aux = capacidade[t];
+                    capacidade[t] = capacidade[t+1];
+                    capacidade[t+1] = aux;
+                }
+            }
 
             for(int j = 0; j<capacidade.size();j++){
                 cout<<capacidade[j]<<endl;

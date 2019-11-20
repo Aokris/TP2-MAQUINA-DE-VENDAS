@@ -10,7 +10,7 @@ void MaquinaShow::MaquinaDeVendas(){
 
 void MaquinaShow::VendasShow(vector<Show> &show,Adulto &adulto){
    
-    int quant = 0, q = 0,n = 0,count = 0;
+    int quant = 0, q = 0,n = 0,count = 0,aux = 0;
 
     vector<Show>::iterator it;
 
@@ -58,8 +58,22 @@ void MaquinaShow::VendasShow(vector<Show> &show,Adulto &adulto){
         if (it->get_id() == n){
 
             vector<int> capacidade,preco;
+
             capacidade = it->get_capacidade();
             preco = it->get_preco();
+            
+            for(int t = 1; t < preco.size();t++){
+                if( preco[t-1]> preco[t] ){
+                    
+                    aux = preco[t];
+                    preco[t] = preco[t+1];
+                    preco[t+1] = aux;
+
+                    aux = capacidade[t];
+                    capacidade[t] = capacidade[t+1];
+                    capacidade[t+1] = aux;
+                }
+            }
             
             do{//Realização de compra de ingressos
 

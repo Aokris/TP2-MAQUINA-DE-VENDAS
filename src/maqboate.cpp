@@ -9,7 +9,7 @@ void MaquinaBoate::MaquinaDeVendas(){
 
 void MaquinaBoate::VendasBoate(vector<Boate> &boate, Adulto &adulto){
     _boate = boate;
-    int quant = 0, q = 0;
+    int quant = 0, q = 0,aux = 0;
     
     vector<Boate>::iterator it;
 
@@ -49,6 +49,18 @@ void MaquinaBoate::VendasBoate(vector<Boate> &boate, Adulto &adulto){
             vector<int> capacidade,preco;
             capacidade = it->get_capacidade();
             preco = it->get_preco();
+            for(int t = 1; t < preco.size();t++){
+                if( preco[t-1]> preco[t] ){
+                    
+                    aux = preco[t];
+                    preco[t] = preco[t+1];
+                    preco[t+1] = aux;
+
+                    aux = capacidade[t];
+                    capacidade[t] = capacidade[t+1];
+                    capacidade[t+1] = aux;
+                }
+            }
             
             do{//Realização de compra de ingressos
 

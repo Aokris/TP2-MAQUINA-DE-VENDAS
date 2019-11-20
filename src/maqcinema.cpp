@@ -11,7 +11,7 @@ void MaquinaCinema::MaquinaDeVendas(){
 void MaquinaCinema::VendasCinema(vector<Cinema> &_cine, Adulto &usuario){
 
     vector<Cinema>::iterator itCine;
-    int i;
+    int i = 0 ,aux = 0;
     vector<int> preco;
 
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){//Exibindo opções de show
@@ -66,35 +66,48 @@ void MaquinaCinema::VendasCinema(vector<Cinema> &_cine, Adulto &usuario){
             for(int j = 0; j < horarios.size();j++){
                 //Exibição de Horarios        
                 std::cout << horarios[j] << "h ";
-        }
-
-        std::cout << std::endl << std::endl << "Escolha o horario desejado: ";
-        std::cin >> k;
-
-    count = 0;
-//Tratamento de erros
-    for(int j = 0; j < horarios.size();j++){
-            if(k == horarios[j]){
-                count++;
             }
-        }
-   
-        if(count == 0){ 
-            std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
-            return;
-        }  
 
-        if(k < 0){
-            std::cout << ("Erro: filme nao existente") << std::endl;
-            return;
-        }
+            std::cout << std::endl << std::endl << "Escolha o horario desejado: " << endl << endl;
+            std::cin >> k;
+
+            count = 0;
+//Tratamento de erros
+            for(int j = 0; j < horarios.size();j++){
+                if(k == horarios[j]){
+                    count++;
+                }
+            }
+   
+            if(count == 0){ 
+                std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
+                return;
+            }  
+
+            if(k < 0){
+                std::cout << ("Erro: filme nao existente") << std::endl;
+                return;
+            }
 
             capacidade = itCine->get_capacidade();
             preco = itCine->get_preco();
 
+            for(int t = 1; t < preco.size();t++){
+                if( preco[t-1]> preco[t] ){
+                    
+                    aux = preco[t];
+                    preco[t] = preco[t+1];
+                    preco[t+1] = aux;
+
+                    aux = capacidade[t];
+                    capacidade[t] = capacidade[t+1];
+                    capacidade[t+1] = aux;
+                }
+            }
+
             do{//Realização de compra de ingressos
 
-                std::cout << "Digite a quantidade de ingressos que deseja comprar: ";
+                std::cout << "Digite a quantidade de ingressos que deseja comprar: "<< std::endl;
                 std::cout << "Quantidade de ingressos: "<< capacidade[q] << std::endl;
                 std::cout << "Valor do ingresso: " << preco[q] << std::endl << std::endl;
                 cin >> quant;
