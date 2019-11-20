@@ -19,7 +19,7 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
         vector<int> horarios;
         
         std::cout << "ID: " << itCine->get_id();
-        std::cout << " - Evento: " << itCine->get_nome()<< " ";
+        std::cout << " - Evento: " << itCine->get_nome() << std::endl;
         horarios = itCine->get_horarios();
 
         std::cout << "Horarios: ";
@@ -56,13 +56,12 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
         if (i == itCine->get_id()){
 
             vector<int> horarios;
-            
             vector<int> capacidade;
             int q,quant;//auxiliares
 
             horarios = itCine->get_horarios();
             
-            std::cout << "Horarios: " << std::endl;
+            std::cout << std::endl << "Horarios: " << std::endl;
             for(int j = 0; j < horarios.size();j++){
                 //Exibição de Horarios        
                 std::cout << horarios[j] << "h ";
