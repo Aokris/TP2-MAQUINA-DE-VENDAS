@@ -63,7 +63,7 @@ int main(){
 
         /* ---------- Tratando Entrada - USUÁRIOS ---------- */
             std::cout << "Para ler o arquivo, digite o nome de cada arquivo correspondente a seguir, no formato 'arquivo.csv'." << endl;
-            std::cout << "O arquivo desejado preferencialmente deve se encontrar na mesma pasta do programa e *deve* usar ; como separador" << endl;
+            std::cout << "O arquivo desejado preferencialmente deve se encontrar na mesma pasta do programa e *deve* usar , como separador" << endl;
             string file_usuarios;
             std::cout << "Digite o nome do arquivo de USUARIOS que deseja abrir: ";
             std::cin >> file_usuarios;

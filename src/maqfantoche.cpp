@@ -4,7 +4,7 @@ using namespace std;
 
 void MaquinaFantoche::MaquinaDeVendas(){
     
-    cout << " Digite o ID do Filme Desejado " << endl;
+    // cout << "Digite o ID do Filme Desejado " << endl;
 }
 
 void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto){

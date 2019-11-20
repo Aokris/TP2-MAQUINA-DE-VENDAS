@@ -38,19 +38,19 @@ void Totem::ListarUsuarios(std::vector<Crianca> crianca, std::vector<Adulto> adu
 
     cout << endl << "Adultos:" << endl;
     for (itAdul = adulto.begin(); itAdul != adulto.end();itAdul++){// Imprime todos os adultos 
-        std::cout << "ID: " << itAdul->get_id() << " ";
-        std::cout << "Nome: " << itAdul->get_nome() << " ";
-        std::cout << "Idade: " << itAdul->get_idade() << " ";
-        std::cout << "Saldo: " << itAdul->get_saldo() << " ";
+        std::cout << "ID: " << itAdul->get_id() << " - ";
+        std::cout << "Nome: " << itAdul->get_nome() << " - ";
+        std::cout << "Idade: " << itAdul->get_idade() << " - ";
+        std::cout << "Saldo: " << itAdul->get_saldo() << " - ";
         std::cout << "Categoria: " << itAdul->get_categoria() << std::endl;
     }
 
     cout << endl << "Idosos:" << endl;
     for (itIdos = idoso.begin(); itIdos != idoso.end();itIdos++){//Imprime todos os idosos
-        std::cout << "ID: " << itIdos->get_id() << " ";
-        std::cout << "Nome: " << itIdos->get_nome() << " ";
-        std::cout << "Idade: " << itIdos->get_idade() << " ";
-        std::cout << "Saldo: " << itIdos->get_saldo() << " ";
+        std::cout << "ID: " << itIdos->get_id() << " - ";
+        std::cout << "Nome: " << itIdos->get_nome() << " - ";
+        std::cout << "Idade: " << itIdos->get_idade() << " - ";
+        std::cout << "Saldo: " << itIdos->get_saldo() << " - ";
         std::cout << "Categoria: " <<itIdos->get_categoria() << std::endl;
     }
 }

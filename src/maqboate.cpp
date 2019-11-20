@@ -4,7 +4,7 @@ using namespace std;
 
 void MaquinaBoate::MaquinaDeVendas(){
     
-    cout << " Digite o ID do Filme Desejado " << endl;
+    // cout << "Digite o ID do Filme Desejado " << endl;
 }
 
 void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
@@ -17,8 +17,8 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
     cout<<"Favor escolher uma das opções abaixo:"<<endl<<endl;
 
     for(it = _boate.begin(); it!=_boate.end(); it++){
-        cout<<it->get_id()<<" "<<it->get_nome()<<endl;
-        cout<<"Duracao: Inicio"<<it->get_horaInicio()<<" - Fim: "<<it->get_horaFim()<<endl<<endl;
+        cout<< "ID: " << it->get_id() <<" - Evento: "<<it->get_nome()<<endl;
+        cout<<"Horario:\n  Inicio - " << it->get_horaInicio() <<"h\n  Fim - " << it->get_horaFim() << "h" << endl << endl;
     }
 
     int n;

@@ -4,7 +4,7 @@ using namespace std;
 
 void MaquinaShow::MaquinaDeVendas(){
     
-    cout << " Digite o ID do Filme Desejado " << endl;
+    // cout << "Digite o ID do Filme Desejado " << endl;
 }
 
 
@@ -18,15 +18,15 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
     cout<<"Favor escolher uma das opções abaixo:"<<endl<<endl;
 
     for(it = _show.begin(); it!=_show.end(); it++){//Imprime as informações 
-        cout<<it->get_id()<<" "<<it->get_nome()<<endl;
-        std::cout << " - Abertura Portoes: " << it->get_aberturaPortoes();
+        cout<< "ID: " << it->get_id() << " - Evento: " << it->get_nome() << endl;
+        std::cout << "Abertura dos Portoes: " << it->get_aberturaPortoes() << "h" << endl;
         
         vector<string> art;
         art = it->get_artistas();
         
-        cout << " - Artistas - " << endl;
+        cout << "Lista dos Artistas:" << endl;
         for (int i = 0; i < sizeof(art);i++){//Imprime os artistas
-            cout << art[i] << endl;    
+            cout << "  " << i << ". " << art[i] << endl;    // Tem algum problema aqui, tá imprimindo um 6
         }
         
     }
