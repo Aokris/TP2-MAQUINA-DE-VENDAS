@@ -46,6 +46,12 @@ int main(){
     depend[0] = -1;
     int *idad = new int[999];
     int *IdDono = new int[999];
+     /* ---------- Váriaveis Auxiliares - EVENTOS ---------- */
+    map<double, int> precos;
+    map<double, int>::iterator itprecos;
+    int maiorQuota = 0, idMaiorQuota = 0;
+    // Contadores
+    int qBoate = 0, qShow = 0, qCine = 0, qFanto = 0;
 
     cout << "SISTEMA DE VENDAS DE INGRESSO" << endl;
     while(n != 4){
@@ -70,26 +76,21 @@ int main(){
             std::cin >> file_usuarios;
             
             int contagem_users = 0;
-            le_usuarios(contagem_users, qcria, qadult, qidos, file_usuarios, depend, idad, crianca, adulto, idoso);
-
-
-        /* ---------- Váriaveis Auxiliares - EVENTOS ---------- */
-            map<double, int> precos;
-            map<double, int>::iterator itprecos;
-            int maiorQuota = 0, idMaiorQuota = 0;
-            // Contadores
-            int qBoate = 0, qShow = 0, qCine = 0, qFanto = 0;
+            try{
+                le_usuarios(contagem_users, qcria, qadult, qidos, file_usuarios, depend, idad, crianca, adulto, idoso);
 
         /* ---------- Tratando Entrada - EVENTOS ---------- */
-            string file_eventos;
-            std::cout << "Digite o nome do arquivo de EVENTOS que voce quer abrir: ";
-            std::cin >> file_eventos;
+                string file_eventos;
+                std::cout << "Digite o nome do arquivo de EVENTOS que voce quer abrir: ";
+                std::cin >> file_eventos;
 
-            int contagem_donos = 0;
-            le_eventos(contagem_donos, qBoate, qShow, qCine, qFanto, IdDono, maiorQuota, idMaiorQuota, file_eventos, cinema, show, boate, fantoche, precos);
-            /*vector<int> hr;
-            hr = cinema.begin()->get_horarios();
-            cout<<hr[0]<<endl<<endl;*/
+                int contagem_donos = 0;
+                le_eventos(contagem_donos, qBoate, qShow, qCine, qFanto, IdDono, maiorQuota, idMaiorQuota, file_eventos, cinema, show, boate, fantoche, precos);
+
+            }catch(...){
+                cout << "\nOs dados no Arquivo são incompativeis. " << '\n';
+            }
+
             //executa as atividades de leitura de dados e inicialização de estruturas que você implementou na primeira parte do trabalho prático.
             Totem::InicializarEstruturasUsuario(crianca, adulto, idoso);
             Totem::InicializarEstruturasEvento(show, cinema, fantoche, boate);
