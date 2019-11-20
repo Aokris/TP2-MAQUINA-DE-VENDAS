@@ -5,7 +5,7 @@ using namespace std;
 
 void MaquinaCinema::MaquinaDeVendas(){
     
-    cout << " Digite o ID do Filme Desejado " << endl;
+    // cout << " Digite o ID do Filme Desejado " << endl;
 }
 
 void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
@@ -18,20 +18,22 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
         
         vector<int> horarios;
         
-        std::cout << std::endl << itCine->get_id() << " ";
-        std::cout << itCine->get_nome()<< " ";
+        std::cout << "ID: " << itCine->get_id();
+        std::cout << " - Evento: " << itCine->get_nome() << std::endl;
         horarios = itCine->get_horarios();
 
+        std::cout << "Horarios: ";
         for(int j = 0; j < horarios.size();j++){
             //Exibição de Horarios        
-            std::cout <<"Horarios: " <<" " << horarios[j];
+            std::cout << horarios[j] << "h ";
         }
 
-        std::cout <<"Duracao: "<< itCine->get_duracao();
+        std::cout << std::endl << "Duracao: " << itCine->get_duracao() << "h";
         std::cout << std::endl << std::endl;
     }
-    
-    cin >> i;
+
+    std::cout << "Opcao: ";
+    std::cin >> i;
     int count = 0;
 //tratamento de erros
     for(itCine = _cine.begin(); itCine != _cine.end(); itCine++){
@@ -54,19 +56,19 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
         if (i == itCine->get_id()){
 
             vector<int> horarios;
-            
             vector<int> capacidade;
             int q,quant;//auxiliares
 
             horarios = itCine->get_horarios();
             
-        for(int j = 0; j < horarios.size();j++){
-            //Exibição de Horarios        
-            std::cout <<"Horarios: " <<" " << horarios[j] ;
+            std::cout << std::endl << "Horarios: " << std::endl;
+            for(int j = 0; j < horarios.size();j++){
+                //Exibição de Horarios        
+                std::cout << horarios[j] << "h ";
         }
 
-            std::cout <<endl<< "Escolha o Horario " << endl;
-            cin >> k;
+        std::cout << std::endl << std::endl << "Escolha o horario desejado: ";
+        std::cin >> k;
 
     count = 0;
 //Tratamento de erros
@@ -93,7 +95,7 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
 
             do{//Realização de compra de ingressos
 
-                std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
+                std::cout << "Digite a quantidade de ingressos que deseja comprar: ";
                 cin >> quant;
 
                 if(capacidade[q] == 0 && q < capacidade.size()){
@@ -103,22 +105,27 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
                 }
 
                 if(quant <= capacidade[q] && quant >= 0){
-                    capacidade[q] = capacidade[q] - quant;
-                    usuario.set_saldo(quant * preco[q]);
-
                     break;
                     
                 }else{
-                    std::cout << "Quantidade de ingressos maior que a exitente" <<std::endl;
+                    std::cout << "Quantidade de ingressos maior que a existente" <<std::endl;
                 }
 
             }while(q != capacidade.size());
+            
+            if(!(usuario.set_saldo(quant * preco[q]))){
+                return;
+            }
+            capacidade[q] = capacidade[q] - quant;
 
-            std::cout << "Compra Realizada com Sucesso" << std::endl;
-            std::cout << itCine->get_id() << " " << itCine->get_nome() << " ";
-            std::cout << k << " " << itCine->get_duracao() << std::endl<< std::endl;
-            std::cout << usuario.get_id() << " " << usuario.get_nome();
-            std::cout << " Saldo Atual: " << usuario.get_saldo() << std::endl << std::endl;
+            std::cout << "Compra Realizada com Sucesso!!" << std::endl << std::endl;
+            std::cout << "---------------" << std::endl;
+            std::cout << "RECIBO DA COMPRA" << std::endl;
+            std::cout << "Filme: " << itCine->get_nome() << " (ID: " << itCine->get_id() << ")" << std::endl;
+            std::cout << "Horario: " << k << "h - Duracao: " << itCine->get_duracao() << "h" << std::endl;
+            std::cout << "Comprador: " << usuario.get_nome() << " (ID: " << usuario.get_id() << ")" << std::endl;
+            std::cout << "Saldo Atual: " << usuario.get_saldo() << std::endl;
+            std::cout << "---------------" << std::endl << std::endl;
             
             return;
         }

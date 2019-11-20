@@ -4,7 +4,7 @@ using namespace std;
 
 void MaquinaFantoche::MaquinaDeVendas(){
     
-    cout << " Digite o ID do Filme Desejado " << endl;
+    // cout << "Digite o ID do Filme Desejado " << endl;
 }
 
 void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto){
@@ -12,7 +12,7 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
 
     vector<TeatroFantoche>::iterator itFant;
 
-    int i;
+    int i = 0,count = 0;
     vector<int> preco,hr;
     cout << " Digite o ID do evento " << endl;
 
@@ -24,21 +24,28 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
 
         horarios = itFant->get_horarios();
 
-        for(int j = 0; j != sizeof(horarios); j++){//Exibição de Horarios
+        for(int j = 0; j != horarios.size(); j++){//Exibição de Horarios
             std::cout << " " << horarios[j];
         }
         
-        std::cout << std::endl;
+        std::cout << std::endl << std::endl;
     }
     
+    std::cout << "Opcao: ";
     cin >> i;
 
 //tratamento de erros
-    if(i > _fant.size()){
+    for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){
+        if(i == itFant->get_id()){
+            count++;
+            break;
+        }
+    }
+
+    if(count == 0){
         std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
         return;
     }
-
     if(i < 0){
         std::cout << ("Erro: evento nao existente") << std::endl;
         return;
@@ -53,15 +60,21 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
             
             std::cout << "Escolha o Horario " << endl;
 
-            for(int j = 0; j != sizeof(horarios); j++){//Imprimindo as opções de horarios
-                std::cout << j << " " << horarios[j] << std::endl;
+            for(int j = 0; j != horarios.size(); j++){//Imprimindo as opções de horarios
+                std::cout << " - " << horarios[j];
             }
 
             cin >> k;
 
 //Tratamento de erros
-            if(k > sizeof(horarios)){
-                std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
+            for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){
+                if(i == itFant->get_id()){
+                    count++;
+                    break;
+                }
+            }
+            if(count == 0){
+                std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
                 return;
             }
             if(k < 0){
@@ -84,10 +97,6 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
                 }
 
                 if(quant <= capacidade[q] && quant >= 0){
-                    
-                    capacidade[q] = capacidade[q] - quant;
-                    adulto.set_saldo(quant * preco[q]);
-
                     break;
                     
                 }else{
@@ -95,6 +104,11 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
                 }
 
             }while(q != sizeof(capacidade));
+                    
+            if(!(adulto.set_saldo(quant * preco[q]))){
+                return;
+            }
+            capacidade[q] = capacidade[q] - quant;
             
             hr = itFant->get_horarios();
 

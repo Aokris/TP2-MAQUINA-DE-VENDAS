@@ -4,7 +4,7 @@ using namespace std;
 
 void MaquinaBoate::MaquinaDeVendas(){
     
-    cout << " Digite o ID do Filme Desejado " << endl;
+    // cout << "Digite o ID do Filme Desejado " << endl;
 }
 
 void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
@@ -17,15 +17,22 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
     cout<<"Favor escolher uma das opções abaixo:"<<endl<<endl;
 
     for(it = _boate.begin(); it!=_boate.end(); it++){
-        cout<<it->get_id()<<" "<<it->get_nome()<<endl;
-        cout<<"Duracao: Inicio"<<it->get_horaInicio()<<" - Fim: "<<it->get_horaFim()<<endl<<endl;
+        cout<< "ID: " << it->get_id() <<" - Evento: "<<it->get_nome()<<endl;
+        cout<<"Horario:\n  Inicio - " << it->get_horaInicio() <<"h\n  Fim - " << it->get_horaFim() << "h" << endl << endl;
     }
 
     int n;
     cout<<"Opcao: ";
     cin>>n;
 
-    if(n > _boate.size()){
+    int count = 0;
+
+    for(it = _boate.begin(); it!=_boate.end(); it++){
+        if(n == it ->get_id()){
+            count++;
+        }
+    }
+    if(count == 0){
         std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
         return;
     }
@@ -47,31 +54,36 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
                 std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
                 cin >> quant;
 
-                if(capacidade[q] == 0 && q < sizeof(capacidade)){
+                if(capacidade[q] == 0 && q < capacidade.size()){
                     q++;
-                }else if (q == sizeof(capacidade)){
+                }else if (q == capacidade.size()){
                     std::cout << "Quantidade de ingressos esgotada" << std::endl;
                 }
 
                 if(quant <= capacidade[q] && quant >= 0){
                     
-                    if(adulto.get_categoria() == "idoso"){
-                        capacidade[q] = capacidade[q] - quant;
-                        adulto.set_saldo(quant * it->get_quota_Idoso());
-                        
-                    }else if(adulto.get_categoria() == "adulto"){
-                        capacidade[q] = capacidade[q] - quant;
-                        adulto.set_saldo(quant * preco[q]);
-                    }
-                    
-                    capacidade[q] - quant;
                     break;
                     
                 }else{
-                    std::cout << "Quantidade de ingressos maior que a exitente" <<std::endl;
+                    std::cout << "Quantidade de ingressos maior que a existente" <<std::endl;
                 }
 
-            }while(q != sizeof(capacidade));
+            }while(q != capacidade.size());
+
+            if(adulto.get_categoria() == "idoso"){
+                
+                if(!(adulto.set_saldo(quant * preco[q]))){
+                    return;
+                }
+                capacidade[q] = capacidade[q] - quant;
+                
+            }else if(adulto.get_categoria() == "adulto"){
+                
+                if(!(adulto.set_saldo(quant * preco[q]))){
+                    return;
+                }
+                capacidade[q] = capacidade[q] - quant;
+            }
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << it->get_id() << " " << it->get_nome()<< " - Duracao: Inicio - ";

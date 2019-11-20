@@ -39,6 +39,7 @@ int main(){
 
     string aux;   
     int n = 0;
+    bool vdd = false;
 
     /* ---------- Váriaveis Auxiliares ---------- */
     int *depend = new int[999];
@@ -63,7 +64,7 @@ int main(){
 
         /* ---------- Tratando Entrada - USUÁRIOS ---------- */
             std::cout << "Para ler o arquivo, digite o nome de cada arquivo correspondente a seguir, no formato 'arquivo.csv'." << endl;
-            std::cout << "O arquivo desejado preferencialmente deve se encontrar na mesma pasta do programa e *deve* usar ; como separador" << endl;
+            std::cout << "O arquivo desejado preferencialmente deve se encontrar na mesma pasta do programa e *deve* usar , como separador" << endl;
             string file_usuarios;
             std::cout << "Digite o nome do arquivo de USUARIOS que deseja abrir: ";
             std::cin >> file_usuarios;
@@ -92,39 +93,52 @@ int main(){
             //executa as atividades de leitura de dados e inicialização de estruturas que você implementou na primeira parte do trabalho prático.
             Totem::InicializarEstruturasUsuario(crianca, adulto, idoso);
             Totem::InicializarEstruturasEvento(show, cinema, fantoche, boate);
-        
+           
+            if((qBoate + qShow + qCine + qFanto) == 0 || (qcria + qadult + qidos) == 0){
+                vdd = false;
+            }else{
+                vdd = true;
+            }
         
         } else if(n == 2){
             //exibe uma listagem de todos os usuários cadastrados no sistema, incluindo seu ID, nome, saldo, categoria (criança, adulto ou idoso) e ID do responsável, caso seja uma criança.
-            Totem::ListarUsuarios(crianca, adulto, idoso);
+            if(vdd){
+                Totem::ListarUsuarios(crianca, adulto, idoso);
+            }else{
+                cout << "Os arquivos não foram carregados" << endl;
+            }
         
         
-        } else if(n == 3){            
-            //solicita o fornecimento do ID de um usuário. Se o ID fornecido não estiver cadastrado ou for de uma criança, o sistema imprime uma mensagem de erro e retorna ao menu inicial.
-            int iduser = Totem::ComprarIngresso(adulto, idoso);
-            
-            cout <<endl << iduser << endl << endl;
+        } else if(n == 3){
+            if(vdd){
+                //solicita o fornecimento do ID de um usuário. Se o ID fornecido não estiver cadastrado ou for de uma criança, o sistema imprime uma mensagem de erro e retorna ao menu inicial.
+                int iduser = Totem::ComprarIngresso(adulto, idoso);
 
-            if(iduser >= 0){
-                //procura o usuario dono da id do comprador
-                for(ita = adulto.begin(); ita!= adulto.end();ita++){
-                    if(iduser == ita->get_id()){
-                    Adulto comprador1 = *ita;
-                    //envia o comprador e os objetos de evento para a maquina de vendas
-                    menuvenda(comprador1, show, cinema, fantoche, boate);
-                    }
-                }
+                //cout <<endl << iduser << endl << endl;
 
-                for(itd = idoso.begin(); itd!= idoso.end();itd++){
-                    if(iduser == itd->get_id()){
-                        Idoso comprador2 = *itd;
+                if(iduser >= 0){
+                    //procura o usuario dono da id do comprador
+                    for(ita = adulto.begin(); ita!= adulto.end();ita++){
+                        if(iduser == ita->get_id()){
+                        Adulto comprador1 = *ita;
                         //envia o comprador e os objetos de evento para a maquina de vendas
-                        menuvenda(comprador2, show, cinema, fantoche, boate);
+                        menuvenda(comprador1, show, cinema, fantoche, boate);
                         }
+                    }
+
+                    for(itd = idoso.begin(); itd!= idoso.end();itd++){
+                        if(iduser == itd->get_id()){
+                            Idoso comprador2 = *itd;
+                            //envia o comprador e os objetos de evento para a maquina de vendas
+                            menuvenda(comprador2, show, cinema, fantoche, boate);
+                            }
+                    }
+                }else{ 
+                    cout<<"Erro: não foi possível identificar o usuario ou usuario é uma criança;"<<endl<<"Aperte qualquer tecla para continuar: ";
+                    cin>> aux;                
                 }
-            }else{ 
-                cout<<"Erro: não foi possível identificar o usuario ou usuario é uma criança;"<<endl<<"Aperte qualquer tecla para continuar: ";
-                cin>> aux;                
+            }else{
+                cout << "Os arquivos não foram carregados" << endl;
             }
         }
     }

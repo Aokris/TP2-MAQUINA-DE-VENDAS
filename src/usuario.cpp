@@ -25,6 +25,12 @@ int Usuario::get_idade(){
 float Usuario::get_saldo(){
     return _saldo;
 }
-float Usuario::set_saldo(int quant){
-    _saldo = _saldo - quant;
+int Usuario::set_saldo(int quant){
+    if(quant > _saldo){
+        cout << "Não é possivel realizar a compra saldo insuficiente" << endl << endl;
+        return 0;
+    }else{
+        _saldo = _saldo - quant;
+        return 1;
+    }
 }

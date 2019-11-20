@@ -4,7 +4,7 @@ using namespace std;
 
 void MaquinaShow::MaquinaDeVendas(){
     
-    cout << " Digite o ID do Filme Desejado " << std::endl;
+    cout << " Digite o ID do Show Desejado " << std::endl;
 }
 
 
@@ -18,35 +18,37 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
     cout<<"Favor escolher uma das opções abaixo:"<<std::endl<<std::endl;
 
     for(it = show.begin(); it!=show.end(); it++){//Imprime as informações 
-        cout<<it->get_id()<<" "<<it->get_nome() << std::endl;
-        std::cout << " - Abertura Portoes: " << it->get_aberturaPortoes();
+        std::cout<< "ID: " << it->get_id() << " - Evento: " << it->get_nome() << std::endl;
+        std::cout << "Abertura dos Portoes: " << it->get_aberturaPortoes() << "h" << std::endl;
         
         vector<string> art;
         art = it->get_artistas();
         
-        cout << " - Artistas - " << std::endl;
+        cout << "Lista dos Artistas:" << endl;
         for (int i = 0; i < art.size();i++){//Imprime os artistas
-            cout << art[i] << std::endl;    
+            cout << " - " << ". " << art[i] << endl;    // Tem algum problema aqui, tá imprimindo um 6
         }
-        art.clear();
     }
-    std::cout <<std::endl<<std::endl;
 
-    cout << "Opcao: ";
-    cin >> n;
-    for(it = show.begin(); it != show.end(); it++){
+    cout<<endl<<endl;
+
+    cout<<"Opcao: ";
+
+    cin>>n;
+
+    for(it = show.begin(); it!=show.end(); it++){
         if(n == it->get_id()){
             count++;
             break;
         }
     }
+
     if(count == 0){
-        std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
+        std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
         return;
     }
-
     if(n < 0){
-        std::cout << ("Erro: show nao existente") << std::endl;
+        std::cout << ("Erro: evento nao existente") << std::endl;
         return;
     }
 
@@ -62,31 +64,33 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
                 std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
                 cin >> quant;
 
-                if(capacidade[q] == 0 && q < sizeof(capacidade)){
+                if(capacidade[q] == 0 && q < capacidade.size()){
                     q++;
-                }else if (q == sizeof(capacidade)){
+                }else if (q == capacidade.size()){
                     std::cout << "Quantidade de ingressos esgotada" << std::endl;
                 }
 
                 if(quant <= capacidade[q] && quant >= 0){
-                    
-                    if(adulto.get_categoria() == "idoso"){
-                        capacidade[q] = capacidade[q] - quant;
-                        adulto.set_saldo(quant * it->get_quota_Idoso());
-                        
-                    }else if(adulto.get_categoria() == "adulto"){
-                        capacidade[q] = capacidade[q] - quant;
-                        adulto.set_saldo(quant * preco[q]);
-                    }
-                    
-                    capacidade[q] - quant;
                     break;
                     
                 }else{
                     std::cout << "Quantidade de ingressos maior que a exitente" <<std::endl;
                 }
 
-            }while(q != sizeof(capacidade));
+            }while(q != capacidade.size());
+
+            if(adulto.get_categoria() == "idoso"){
+                if(!(adulto.set_saldo(quant * preco[q]))){
+                    return;
+                }
+                capacidade[q] = capacidade[q] - quant;
+                
+            }else if(adulto.get_categoria() == "adulto"){
+                if(!(adulto.set_saldo(quant * preco[q]))){
+                    return;
+                }
+                capacidade[q] = capacidade[q] - quant;
+            }
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << it->get_id()<< " " << it->get_nome()<< " - Abertura - ";
