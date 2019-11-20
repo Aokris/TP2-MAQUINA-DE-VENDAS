@@ -57,7 +57,7 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
 
             vector<int> horarios;
             vector<int> capacidade;
-            int q,quant;//auxiliares
+            int q = 0,quant;//auxiliares
 
             horarios = itCine->get_horarios();
             

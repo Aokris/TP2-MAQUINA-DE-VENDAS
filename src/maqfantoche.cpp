@@ -54,7 +54,7 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
     for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){//Logica de Compra 
         if (i == itFant->get_id()){
 
-            int k,q,quant;
+            int k,q = 0,quant;
             vector<int> capacidade, horarios;
             horarios = itFant->get_horarios();
             
@@ -86,6 +86,10 @@ count = 0;
             preco = itFant->get_preco();
             capacidade = itFant->get_capacidade();
 
+            for(int j = 0; j<capacidade.size();j++){
+                cout<<capacidade[j]<<endl;
+            }
+            cout<<endl;
             do{//Realização de compra de ingressos
 
                 std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
@@ -114,7 +118,7 @@ count = 0;
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itFant->get_id() << " " << itFant->get_nome() << " ";
-            std::cout << k << std::endl<< std::endl;
+            std::cout << k << std::endl<< std::endl;//horario
             std::cout << adulto.get_id() << " " << adulto.get_nome();
             std::cout << " Saldo Atual: " << adulto.get_saldo() << std::endl << std::endl;
             
