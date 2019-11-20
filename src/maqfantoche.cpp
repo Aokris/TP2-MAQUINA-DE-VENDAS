@@ -67,12 +67,12 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
             cin >> k;
 
 //Tratamento de erros
-            for(itFant = _fant.begin(); itFant != _fant.end(); itFant++){
-                if(i == itFant->get_id()){
-                    count++;
-                    break;
+        for(int j = 0; j < horarios.size();j++){
+                if(k == horarios[j]){
+                count++;
                 }
             }
+            
             if(count == 0){
                 std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
                 return;
@@ -110,11 +110,10 @@ void MaquinaFantoche::VendasFantoche(vector<TeatroFantoche> fant, Adulto adulto)
 
             }while(q != capacidade.size());
             
-            hr = itFant->get_horarios();
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << itFant->get_id() << " " << itFant->get_nome() << " ";
-            std::cout << hr[k] << std::endl<< std::endl;
+            std::cout << k << std::endl<< std::endl;
             std::cout << adulto.get_id() << " " << adulto.get_nome();
             std::cout << " Saldo Atual: " << adulto.get_saldo() << std::endl << std::endl;
             
