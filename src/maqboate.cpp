@@ -25,7 +25,14 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
     cout<<"Opcao: ";
     cin>>n;
 
-    if(n > _boate.size()){
+    int count = 0;
+
+    for(it = _boate.begin(); it!=_boate.end(); it++){
+        if(n == it ->get_id()){
+            count++;
+        }
+    }
+    if(count == 0){
         std::cout << ("Erro: impossivel encontrar o evento") << std::endl;
         return;
     }
@@ -47,9 +54,9 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
                 std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
                 cin >> quant;
 
-                if(capacidade[q] == 0 && q < sizeof(capacidade)){
+                if(capacidade[q] == 0 && q < capacidade.size()){
                     q++;
-                }else if (q == sizeof(capacidade)){
+                }else if (q == capacidade.size()){
                     std::cout << "Quantidade de ingressos esgotada" << std::endl;
                 }
 
@@ -63,15 +70,13 @@ void MaquinaBoate::VendasBoate(vector<Boate> boate, Adulto adulto){
                         capacidade[q] = capacidade[q] - quant;
                         adulto.set_saldo(quant * preco[q]);
                     }
-                    
-                    capacidade[q] - quant;
                     break;
                     
                 }else{
-                    std::cout << "Quantidade de ingressos maior que a exitente" <<std::endl;
+                    std::cout << "Quantidade de ingressos maior que a existente" <<std::endl;
                 }
 
-            }while(q != sizeof(capacidade));
+            }while(q != capacidade.size());
 
             std::cout << "Compra Realizada com Sucesso" << std::endl;
             std::cout << it->get_id() << " " << it->get_nome()<< " - Duracao: Inicio - ";

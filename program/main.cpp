@@ -103,7 +103,7 @@ int main(){
             //solicita o fornecimento do ID de um usuário. Se o ID fornecido não estiver cadastrado ou for de uma criança, o sistema imprime uma mensagem de erro e retorna ao menu inicial.
             int iduser = Totem::ComprarIngresso(adulto, idoso);
             
-            cout <<endl << iduser << endl << endl;
+            //cout <<endl << iduser << endl << endl;
 
             if(iduser >= 0){
                 //procura o usuario dono da id do comprador

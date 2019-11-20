@@ -112,7 +112,7 @@ void MaquinaCinema::VendasCinema(vector<Cinema> _cine, Adulto usuario){
                     break;
                     
                 }else{
-                    std::cout << "Quantidade de ingressos maior que a exitente" <<std::endl;
+                    std::cout << "Quantidade de ingressos maior que a existente" <<std::endl;
                 }
 
             }while(q != capacidade.size());

@@ -35,12 +35,18 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
     int n;
     cout<<"Opcao: ";
     cin>>n;
+    int count = 0;
 
-    if(n > _show.size()){
+    for(it = _show.begin(); it!=_show.end(); it++){
+        if(n == it->get_id()){
+            count++;
+        }
+    }
+
+    if(count == 0){
         std::cout << ("Erro: impossivel encontrar o filme") << std::endl;
         return;
     }
-
     if(n < 0){
         std::cout << ("Erro: filme nao existente") << std::endl;
         return;
@@ -58,9 +64,9 @@ void MaquinaShow::VendasShow(vector<Show> show,Adulto adulto){
                 std::cout << "Digite a quantidade de ingressos que deseja comprar" << std::endl;
                 cin >> quant;
 
-                if(capacidade[q] == 0 && q < sizeof(capacidade)){
+                if(capacidade[q] == 0 && q < capacidade.size()){
                     q++;
-                }else if (q == sizeof(capacidade)){
+                }else if (q == capacidade.size()){
                     std::cout << "Quantidade de ingressos esgotada" << std::endl;
                 }
 
