@@ -104,7 +104,7 @@ count = 0;
                 cin >> quant;
                 cout << endl << std::endl;
 
-                if(capacidade[q] == 0 && q < capacidade.size()){//dando problema aqui
+                if(capacidade[q] == 0 && q < capacidade.size()){
                     q++;
                 }else if (q == capacidade.size()){
                     std::cout << "Quantidade de ingressos esgotada" << std::endl;
@@ -112,7 +112,7 @@ count = 0;
 
                 if(quant <= capacidade[q] && quant >= 0){
                             
-                    if(!(adulto.set_saldo(quant * preco[q]))){//dando problema aqui
+                    if(!(adulto.set_saldo(quant * preco[q]))){
                         return;
                     }
                     capacidade[q] = capacidade[q] - quant;

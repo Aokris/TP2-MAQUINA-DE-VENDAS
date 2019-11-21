@@ -1,8 +1,3 @@
-#include "funcoes.h"
-#include "maqshow.h"
-#include "maqfantoche.h"
-#include "maqcinema.h"
-#include "maqboate.h"
 #include <map>
 #include <algorithm>
 #include <iostream>
@@ -16,6 +11,13 @@
 #include "crianca.h"
 #include "idoso.h"
 #include "totem.h"
+#include "funcoes.h"
+#include "maqshow.h"
+#include "maqfantoche.h"
+#include "maqcinema.h"
+#include "maqboate.h"
+
+
 
 int le_usuarios(int &j, int &qcria, int &qadult, int &qidos, std::string file_usuarios, int *depend, int *idad, vector<Crianca> &crianca, vector<Adulto> &adulto, vector<Idoso> &idoso){
     // Definindo auxiliares
@@ -27,10 +29,10 @@ int le_usuarios(int &j, int &qcria, int &qadult, int &qidos, std::string file_us
     std::ifstream file_a(file_usuarios);
 
     if(file_a.is_open()){
-        // Separar em uma função
         std::string linha, linha_aux;
         std::vector<string> tratamento;
         
+        // Lendo cada linha e armazenando numa string, separando cada elemento e inserindo num vector
         while(getline(file_a, linha)){
             stringstream X(linha);
             while(getline(X, linha_aux, ',')){
@@ -96,11 +98,10 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
     std::ifstream file_b(file_eventos);
 
     if(file_b.is_open()){
-        // Separar em uma função
         std::string linha, linha_aux;
         std::vector<string> tratamento2;
         
-        
+        // Lendo cada linha e armazenando numa string, separando cada elemento e inserindo num vector
         while(getline(file_b, linha)){
             stringstream Y(linha);
             while(getline(Y, linha_aux, ',')){
@@ -123,8 +124,6 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
 
             NumTipos = stoi(tratamento2[i]); i++;
 
-            //int *ingEven = new int[NumTipos];
-            //int *ValorEven = new int[NumTipos];
 
             vector<int> ingEven;
             vector<int> ValorEven;
@@ -138,7 +137,6 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
                 precos[ValorEven[aux_tipos]] += ingEven[aux_tipos];
             }
 
-            //int *horario = new int[999];
             vector<int> horario;
             // Se o evento não for do tipo Adulto, a leitura dos horários é realizada
             int aux_size = tratamento2.size() - i;
@@ -199,10 +197,6 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
                 return EXIT_FAILURE;
 
             }
-
-            //delete [] horario;
-            //delete [] ingEven;
-           // delete [] ValorEven;
 
             contagem_donos++;
 
@@ -312,7 +306,6 @@ void menuvenda(Adulto &adulto, vector<Show> &show, vector<Cinema> &cinema, vecto
     cout <<"Opcao: ";
     cin >> n;
 
-    //implementar o objeto das respectivas categorias
     if(n == 1){       
         cine.MaquinaDeVendas();
         cine.VendasCinema(cinema,adulto);

@@ -26,7 +26,7 @@ void MaquinaShow::VendasShow(vector<Show> &show,Adulto &adulto){
         
         cout << endl << "Lista dos Artistas:" << endl << endl;
         for (int i = 0; i < art.size();i++){//Imprime os artistas
-            cout << "* " << art[i] << endl;    // Tem algum problema aqui, tá imprimindo um 6
+            cout << "* " << art[i] << endl;
         }
     }
 
