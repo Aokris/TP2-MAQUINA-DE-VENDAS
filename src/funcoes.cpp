@@ -70,6 +70,7 @@ int le_usuarios(int &j, int &qcria, int &qadult, int &qidos, std::string file_us
             tratamento.clear();
         }
 
+        std::cout << "Leitura do arquivo 'usuarios.csv' realizada com sucesso!" << std::endl;
         
     } else {
         cout << "Erro, nao deu pra abrir!" << endl;
@@ -207,6 +208,7 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
 
             tratamento2.clear();
         }
+        std::cout << "Leitura do arquivo 'eventos.csv' realizada com sucesso!" << std::endl;
 
     } else {
         cout << "Erro, nao deu pra abrir!" << endl;
