@@ -73,7 +73,7 @@ int le_usuarios(int &j, int &qcria, int &qadult, int &qidos, std::string file_us
         std::cout << "Leitura do arquivo 'usuarios.csv' realizada com sucesso!" << std::endl;
         
     } else {
-        cout << "Erro, nao deu pra abrir!" << endl;
+        cout << "Erro, falha ao tentar abrir o arquivo 'usuarios.csv'! (Garanta que ele esteja na mesma pasta do programa)" << endl;
         return EXIT_FAILURE;
     }
 
@@ -211,7 +211,7 @@ int le_eventos(int &contagem_donos, int &qBoate, int &qShow, int &qCine, int &qF
         std::cout << "Leitura do arquivo 'eventos.csv' realizada com sucesso!" << std::endl;
 
     } else {
-        cout << "Erro, nao deu pra abrir!" << endl;
+        cout << "Erro, falha ao tentar abrir o arquivo 'eventos.csv'! (Garanta que ele esteja na mesma pasta do programa)" << endl;
         return EXIT_FAILURE;
     }
 
