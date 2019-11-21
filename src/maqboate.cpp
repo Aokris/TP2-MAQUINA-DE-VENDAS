@@ -102,7 +102,7 @@ void MaquinaBoate::VendasBoate(vector<Boate> &boate, Adulto &adulto){
             std::cout << "---------------" << std::endl;
             std::cout << "RECIBO DA COMPRA" << std::endl;
             std::cout << "Evento: " << it->get_nome() << " (ID: " << it->get_id() << ")" << std::endl;
-            std::cout << "Inicio: " << it->get_horaInicio()<<" - Fim: " << it->get_horaFim() << std::endl;
+            std::cout << "Inicio: " << it->get_horaInicio()<<"h - Fim: " << it->get_horaFim() << "h" << std::endl;
             std::cout << "Comprador: " << adulto.get_nome() << " (ID: " << adulto.get_id() << ")" << std::endl;
             std::cout << "Saldo Atual: " << adulto.get_saldo() << std::endl;
             std::cout << "---------------" << std::endl << std::endl;

@@ -24,7 +24,7 @@ void MaquinaShow::VendasShow(vector<Show> &show,Adulto &adulto){
         vector<string> art;
         art = it->get_artistas();
         
-        cout << endl << "Lista dos Artistas:" << endl << endl;
+        cout << endl << "Lista dos Artistas:" << endl;
         for (int i = 0; i < art.size();i++){//Imprime os artistas
             cout << "* " << art[i] << endl;
         }
@@ -116,7 +116,7 @@ void MaquinaShow::VendasShow(vector<Show> &show,Adulto &adulto){
             std::cout << "---------------" << std::endl;
             std::cout << "RECIBO DA COMPRA" << std::endl;
             std::cout << "Show: "<< it->get_nome() << " (ID: " << it->get_id() << ")" << std:: endl;
-            std::cout << "Horario de Abertura: " << it->get_aberturaPortoes() << std::endl;
+            std::cout << "Horario de Abertura: " << it->get_aberturaPortoes() << "h" << std::endl;
             std::cout << "Comprador: " << adulto.get_nome() << " (ID: " << adulto.get_id() << ")" << std::endl;
             std::cout << "Saldo Atual: " << adulto.get_saldo() << std::endl;
             std::cout << "---------------" << std::endl << std::endl;
