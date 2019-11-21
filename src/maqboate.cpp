@@ -4,7 +4,7 @@ using namespace std;
 
 void MaquinaBoate::MaquinaDeVendas(){
     
-     cout << endl<< "Digite o ID do Filme Desejado " << endl;
+     cout << endl<< "Digite o ID da Boate Desejada:" << endl;
 }
 
 void MaquinaBoate::VendasBoate(vector<Boate> &boate, Adulto &adulto){
