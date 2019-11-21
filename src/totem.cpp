@@ -67,14 +67,12 @@ int Totem::ComprarIngresso(std::vector<Adulto> &adulto,  std::vector<Idoso> &ido
     cin>>iduser;
 
     for(itAdul = adulto.begin(); itAdul!= adulto.end();itAdul++){
-            //cout << itAdul->get_id() << endl << endl;
             if(iduser == itAdul->get_id()){
             return itAdul->get_id();
         }
     }
 
     for(itIdos = idoso.begin(); itIdos!= idoso.end();itIdos++){
-       // cout << itIdos->get_id() << endl << endl;
 
         if(iduser == itIdos->get_id()){
         return itIdos->get_id();
